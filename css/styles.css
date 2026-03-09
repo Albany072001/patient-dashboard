@@ -21,11 +21,13 @@
 --color-878787: #878787;
 --color-ffffff: #FFFFFF;
 --color-ff6200: #FF6200;
+--color-e0e0e0: #E0E0E0;
+--color-F6F7F8: #F6F7F8;
 
 /* Font/text values */
 --font-family-manrope: Manrope;
 --font-style-normal: normal;
---font-weight-800: 800px;
+--font-weight-800: 800;
 --font-weight-normal: normal;
 --font-weight-bold: bold;
 --font-size-14: 14px;
@@ -63,6 +65,7 @@ font-family: var(--font-family-manrope);
 font-style: var(--font-style-normal);
 font-weight: var(--font-weight-bold);
 font-size: var(--font-size-14);
+margin-bottom: 8px;
 line-height: var(--line-spacing-19);
 letter-spacing: var(--character-spacing-0);
 color: var(--color-072635);
@@ -86,6 +89,12 @@ letter-spacing: var(--character-spacing-0);
 color: var(--color-072635);
 }
 
+body {
+  background-color: var(--color-F6F7F8);
+  margin: 0;
+  padding: 0;
+}
+
 /* Nav bar style */
 .navbar {
   font-family: var(--font-family-manrope);  
@@ -94,7 +103,7 @@ color: var(--color-072635);
   background: var(--color-ffffff);
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border-radius: 70px;
-  padding: 0 24px; /*space inbetween the page margin and the logo/doctor info in nav*/
+  padding: 0 40px; /*space inbetween the page margin and the logo/doctor info in nav*/
   margin: 20px; /*scpace between the top margin and the nav bar */
   height: 80px; /*height of the nav bar */
   display: flex; /* to align the logo, menu, and doctor info horizontally */
@@ -109,11 +118,13 @@ color: var(--color-072635);
   list-style: none;
 }
 
-.nav-menu li {
-  display: flex; 
-  align-items: center; 
-  gap: 18px; /* space between the menu item text and the icon */
-  cursor: pointer;
+.nav-menu li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:6px 10px;
+  border-radius:16px;
+  transition:0.2s ease;
 }
 
 .nav-menu li.active {
@@ -121,4 +132,121 @@ color: var(--color-072635);
   color: var(--color-072635); /* active menu item text color */
   border-radius: 20px;
   padding: 8px 16px; /* space inside the active menu item */
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+}
+
+/* Doctor info section */
+
+div.nav-doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar */
+.doctor-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Text container */
+div.doctor-text {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* Doctor name */
+div.doctor-text p {
+  font: var(--font-style-normal) normal var(--font-weight-bold) var(--font-size-14)/var(--line-spacing-19) var(--font-family-manrope);
+  letter-spacing: var(--character-spacing-0);
+  color: var(--color-072635);
+}
+
+/* Ocupation title*/
+div.doctor-text span {
+  font-family: var(--font-family-manrope);
+  font-style: var(--font-style-normal);
+  color: var(--color-707070);
+  margin-bottom: 10px;
+}
+
+/* Call to action icons in nav bar */
+div.cta-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: 12px;
+  border-left: 1px solid var(--color-e0e0e0); /* vertical line to separate the doctor info from the icons */
+  height: 46px; /* height of the vertical line */
+  padding-left: 16px; /* space between the vertical line and the icons */
+}
+
+.cta-icons img {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/*Media query for mobile responsiveness */
+/*Mobile: 480px and below*/
+@media (max-width:480px){
+
+  .nav-menu{
+    overflow-x:auto;
+    gap:16px;
+    justify-content:flex-start;
+    padding-bottom:4px;
+  }
+
+  .nav-menu li{
+    flex:0 0 auto;
+  }
+
+}
+
+/*Tablet: 768px and below*/
+
+@media (max-width: 768px) {
+
+  .navbar{
+    flex-wrap:wrap;
+    height:auto;
+    padding:16px;
+    border-radius:30px;
+  }
+
+  .nav-logo{
+    order:1;
+  }
+
+  .nav-doctor-info{
+    order:2;
+  }
+
+  .nav-menu{
+    order:3;
+    width:100%;
+    justify-content:space-around;
+    margin-top:10px;
+  }
+}
+
+/* Desktop: 1024px and below */
+@media (max-width: 1024px){
+
+  .nav-menu{
+    gap:16px;
+  }
+
+  .nav-menu li span{
+    display:none;
+  }
 }
