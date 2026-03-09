@@ -50,6 +50,7 @@ line-height: var(--line-spacing-33);
 letter-spacing: var(--character-spacing-0);
 color: var(--color-072635);
 }
+
 .inner-card-title-18pt {
 font-family: var(--font-family-manrope);
 font-style: var(--font-style-normal);
@@ -60,16 +61,18 @@ letter-spacing: var(--character-spacing-0);
 color: var(--color-072635);
 text-transform: var(--text-transform-titlecase);
 }
+
 .body-emphasized-14pt {
 font-family: var(--font-family-manrope);
 font-style: var(--font-style-normal);
 font-weight: var(--font-weight-bold);
 font-size: var(--font-size-14);
-margin-bottom: 8px;
+margin-bottom: 5px;
 line-height: var(--line-spacing-19);
 letter-spacing: var(--character-spacing-0);
 color: var(--color-072635);
 }
+
 .body-secondary-info-14pt {
 font-family: var(--font-family-manrope);
 font-style: var(--font-style-normal);
@@ -79,6 +82,7 @@ line-height: var(--line-spacing-19);
 letter-spacing: var(--character-spacing-0);
 color: var(--color-707070);
 }
+
 .body-regular-14 {
 font-family: var(--font-family-manrope);
 font-style: var(--font-style-normal);
