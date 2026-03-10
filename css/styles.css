@@ -199,6 +199,11 @@ div.cta-icons {
   margin-left: 5px;
 }
 
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
 /*Media query for mobile responsiveness */
 /*Mobile: 480px and below*/
 @media (max-width:480px){
