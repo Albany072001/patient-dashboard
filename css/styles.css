@@ -193,15 +193,154 @@ div.cta-icons {
 }
 
 .cta-icons img {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 15px;
   cursor: pointer;
   margin-left: 5px;
 }
 
+/* Dashboard Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 360px 1fr 360px;
+  gap: 30px;
+  padding: 0 20px 20px;
+  align-items: flex-start;
+}
+
+.patients-panel, .center-panel, .right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Visually hidden class for accessibility */
 .visually-hidden {
   position: absolute;
   left: -9999px;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px; /* Space between header and patient list */
+}
+
+/* Patients section */
+#patientsSection {
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  display: block;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  margin: 0; /* Margin is handled by the parent's gap */
+  overflow-y: auto;
+  max-height: calc(100vh - 200px); /* Constrain height to enable scrolling */
+
+  /* Firefox scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
+}
+
+/* Webkit (Chrome, Safari, Edge) scrollbar styling */
+#patientsSection::-webkit-scrollbar {
+  width: 6px;
+}
+
+#patientsSection::-webkit-scrollbar-track {
+  background: var(--color-e0e0e0);
+}
+
+#patientsSection::-webkit-scrollbar-thumb {
+  background-color: var(--color-072635);
+  border-radius: 5px;
+}
+
+#patientsSection::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-707070);
+}
+
+/* Patient items */
+.patient-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px; /* compact spacing inside each item */
+  border-radius: 12px;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.patient-item:hover {
+  background-color: #F6F7F8; 
+}
+
+.patient-item.active {
+  background-color: var(--color-d8fcf7);  
+}
+
+.patient-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.patient-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                     
+  overflow: hidden;
+}
+
+.patient-name {
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-14);
+  color: var(--color-072635);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patient-meta {
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-14);
+  color: var(--color-707070);
+  margin: 0;
+}
+
+.patient-options {
+  width: 18px;
+  height: 6px;
+  cursor: pointer;
+}
+
+/* UI states */
+/* Loading message */
+.loading-state {
+  font-family: var(--font-family-manrope);
+  font-size: var(--font-size-14);
+  color: var(--color-707070);
+  padding: 16px 0;
+}
+
+/* Error message */
+.error-state {
+  font-family: var(--font-family-manrope);
+  font-size: var(--font-size-14);
+  color: var(--color-ff6200);
+  padding: 16px 0;
+  display: none;
+}
+
+/* Data container */
+.data-state {
+  display: none;
 }
 
 /*Media query for mobile responsiveness */
