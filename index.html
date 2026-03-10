@@ -2,74 +2,151 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Patient Dashboard</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/reset.css" />
-  <link rel="stylesheet" href="./css/variables.css" />
-  <link rel="stylesheet" href="./css/styles.css" />
-
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-<body>
+    <body>
 
-  <!-- ============= NAVIGATIONBAR ================= -->
+    <!-- ============= NAVIGATIONBAR ================= -->
 
-  <nav class="navbar">
+    <nav class="navbar">
 
-    <div class="nav-logo">
-      <img src="./assets/icons/TestLogo.png" alt="Tech Care Logo">
-    </div>
-
-    <ul class="nav-menu">
-    <li> 
-        <img src="./assets/icons/home.png" alt="Overview Icon">
-        <span>Overview</span>
-    </li>
-
-    <li class="active">
-        <img src="./assets/icons/group.png" alt="Patients Icon">
-        <span>Patients</span>
-    </li>
-
-    <li>
-        <img src="./assets/icons/calendar_today.png" alt="Schedule Icon">
-        <span>Schedule</span>
-    </li>
-
-    <li>
-        <img src="./assets/icons/chat_bubble.png" alt="Message Icon">
-        <span>Message</span>
-    </li>
-
-    <li>
-        <img src="./assets/icons/credit_card.png" alt="Transactions Icon">
-        <span>Transactions</span>
-    </li>
-    </ul>
-
-    <div class="nav-doctor-info">
-        <img class="doctor-avatar" src="./assets/images/senior_woman_doctor.png" alt="Doctor">
-
-        <div class="doctor-text">
-            <p class="body-emphasized-14pt">Dr. Jose Simmons</p> <!--Class defined in the root rules variable-->
-            <span class="body-secondary-info-14pt">General Practitioner</span> <!--Class defined in the root rules variable-->
+        <div class="nav-logo">
+        <img src="./assets/icons/TestLogo.png" alt="Tech Care Logo">
         </div>
 
-        <div class="cta-icons">
-            <img src="./assets/icons/settings.png" alt="Settings">
-            <img src="./assets/icons/more@2x.png" alt="More options">
+        <ul class="nav-menu">
+        <li> 
+            <img src="./assets/icons/home.png" alt="Overview Icon">
+            <span>Overview</span>
+        </li>
+
+        <li class="active">
+            <img src="./assets/icons/group.png" alt="Patients Icon">
+            <span>Patients</span>
+        </li>
+
+        <li>
+            <img src="./assets/icons/calendar_today.png" alt="Schedule Icon">
+            <span>Schedule</span>
+        </li>
+
+        <li>
+            <img src="./assets/icons/chat_bubble.png" alt="Message Icon">
+            <span>Message</span>
+        </li>
+
+        <li>
+            <img src="./assets/icons/credit_card.png" alt="Transactions Icon">
+            <span>Transactions</span>
+        </li>
+        </ul>
+
+        <div class="nav-doctor-info">
+            <img class="doctor-avatar" src="./assets/images/senior_woman_doctor.png" alt="Doctor">
+
+            <div class="doctor-text">
+                <p class="body-emphasized-14pt">Dr. Jose Simmons</p> <!--Class defined in the root rules variable-->
+                <span class="body-secondary-info-14pt">General Practitioner</span> <!--Class defined in the root rules variable-->
+            </div>
+
+            <div class="cta-icons">
+                <img src="./assets/icons/settings.png" alt="Settings">
+                <img src="./assets/icons/more@2x.png" alt="More options">
+            </div>
         </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- ================= DASHBOARD ================= -->
+    <!-- ================= DASHBOARD ================= -->
 
-  <main class="dashboard">
+      <main class="dashboard">
 
-</body>
+    <!-- ================= LEFT COLUMN ================= -->
+    <!-- PATIENT LIST -->
 
+        <aside class="patients-panel">
+          <section id="patientsSection">
+
+            <header class="section-header">
+              <h2 class="card-title-24pt">Patients</h2>
+            </header>
+
+              <div id="patientsList">
+
+                <!-- JS will render patients here -->
+
+              </div>
+          </section>
+        </aside>
+
+      <!-- ================= CENTER COLUMN ================= -->
+
+      <section class="center-panel">
+
+        <h2 class="visually-hidden">Patient Data</h2>
+
+        <!-- DIAGNOSIS HISTORY -->
+        <section id="diagnosisHistorySection">
+
+          <h2 class="card-title-24pt">Diagnosis History</h2>
+
+          <div id="diagnosisHistory">
+            <!-- renderDiagnosisHistory.js will populate -->
+          </div>
+
+        </section>
+
+        <!-- DIAGNOSTIC LIST -->
+        <section id="diagnosticListSection">
+
+          <h2 class="card-title-24pt">Diagnostic List</h2>
+
+          <div id="diagnosticList">
+            <!-- renderDiagnosticList.js will populate -->
+          </div>
+
+        </section>
+
+      </section>
+
+    <!-- ================= RIGHT COLUMN ================= -->
+
+      <aside class="right-panel">
+
+      <!-- PATIENT PROFILE -->
+
+        <section id="patientProfileSection">
+
+          <h2 class="card-title-24pt">Patient Profile</h2>
+
+          <div id="patientProfile">
+
+              <!-- renderPatientProfile.js will populate -->
+
+          </div>
+          
+        </section>
+
+      <!-- LAB RESULTS -->
+
+        <section id="labResultsSection">
+
+          <h2 class="card-title-24pt">Lab Results</h2>
+
+          <div id="labResults">
+
+            <!-- renderLabResults.js will populate -->
+
+          </div>
+        </section>
+      </aside>
+    </main>
+  </body>
 </html>
