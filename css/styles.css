@@ -23,6 +23,7 @@
 --color-ff6200: #FF6200;
 --color-e0e0e0: #E0E0E0;
 --color-F6F7F8: #F6F7F8;
+--color-E3E4E6: #E3E4E6;
 
 /* Font/text values */
 --font-family-manrope: Manrope;
@@ -151,8 +152,8 @@ div.nav-doctor-info {
   gap: 12px;
 }
 
-/* Avatar */
-.doctor-avatar {
+/* Profile picture - Doctor */
+.doctor-picture {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -241,12 +242,12 @@ div.cta-icons {
 
   /* Firefox scrollbar styling */
   scrollbar-width: thin;
-  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
+  scrollbar-color: var(--color-072635) var(--color-E3E4E6);
 }
 
 /* Webkit (Chrome, Safari, Edge) scrollbar styling */
 #patientsSection::-webkit-scrollbar {
-  width: 6px;
+  width: 3px;
 }
 
 #patientsSection::-webkit-scrollbar-track {
@@ -256,10 +257,6 @@ div.cta-icons {
 #patientsSection::-webkit-scrollbar-thumb {
   background-color: var(--color-072635);
   border-radius: 5px;
-}
-
-#patientsSection::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-707070);
 }
 
 /* Patient items */
@@ -281,7 +278,7 @@ div.cta-icons {
   background-color: var(--color-d8fcf7);  
 }
 
-.patient-avatar {
+.patient-picture {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -327,7 +324,7 @@ div.cta-icons {
   font-size: var(--font-size-14);
   color: var(--color-707070);
   padding: 16px 0;
-}
+}     
 
 /* Error message */
 .error-state {
