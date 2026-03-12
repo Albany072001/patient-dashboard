@@ -236,16 +236,12 @@ div.cta-icons {
   display: block;
   padding: 24px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  margin: 0; /* Margin is handled by the parent's gap */
-  overflow-y: auto;
-  max-height: calc(100vh - 200px); /* Constrain height to enable scrolling */
-
-  /* Firefox scrollbar styling */
-  scrollbar-width: thin;
+  height: 825px; /* Constrain height to enable scrolling */
+  scrollbar-width: thin; /* Firefox scrollbar styling */
   scrollbar-color: var(--color-072635) var(--color-E3E4E6);
 }
 
-/* Webkit (Chrome, Safari, Edge) scrollbar styling */
+/* Webkit (Chrome, Safari, Edge) scrollbar styling
 #patientsSection::-webkit-scrollbar {
   width: 3px;
 }
@@ -257,14 +253,14 @@ div.cta-icons {
 #patientsSection::-webkit-scrollbar-thumb {
   background-color: var(--color-072635);
   border-radius: 5px;
-}
+} */
 
 /* Patient items */
 .patient-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px; /* compact spacing inside each item */
+  padding: 10px 12px; /* compact spacing inside each item */
   border-radius: 12px;
   cursor: pointer;
   gap: 12px;
@@ -339,6 +335,45 @@ div.cta-icons {
 .data-state {
   display: none;
 }
+
+/* Diagnosis history section */
+#diagnosisHistorySection {
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  display: block;
+  padding: 24px;
+  height: 425px;
+  box-shadow: 0;
+}
+
+/* Diagnosis list section*/
+
+#diagnosticListSection {
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  display: block;
+  padding: 24px;
+  height: 325px;
+}
+
+/* Patient details section */
+#patientProfileSection {
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  display: block;
+  padding: 24px;
+  height: 500px;
+}
+
+/* Vital signs section */
+#labResultsSection {
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  display: block;
+  padding: 24px;
+  height: 250px;
+}
+
 
 /*Media query for mobile responsiveness */
 /*Mobile: 480px and below*/
