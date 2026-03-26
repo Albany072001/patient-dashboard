@@ -20,7 +20,9 @@ async function initDashboard() { // Initialize the patient dashboard by fetching
 
     container.querySelector(".loading-state").style.display = "block"; // Show the loading state.
     container.querySelector(".error-state").style.display = "none";
-    container.querySelector(".data-state").innerHTML = ""; // Clear any existing data state content.
+
+    const dataState = container.querySelector(".data-state");
+    if (dataState) dataState.style.display = "none"; // Hide the data state if it exists.
   });
 
   try {
@@ -58,8 +60,7 @@ async function initDashboard() { // Initialize the patient dashboard by fetching
     renderLabResults(patient);
 
   } catch (error) {
-    console.error("Dashboard failed to load", error);
-
+    console.error("Dashboard failed to load", error); // Log an error message if there was an issue fetching the patient data or rendering the dashboard.
     // Show error for all sections
     sections.forEach(id => {
       const container = document.getElementById(id);

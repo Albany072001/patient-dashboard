@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap");
+
+:root {
+
+  /* Colors: */
+  --color-d8fcf7: #D8FCF7;
+  --color-01f0d0: #01F0D0;
+  --color-072635: #072635; 
+  --color-707070: #707070;
+  --color-ffffff: #FFFFFF;
+  --color-ff6200: #FF6200;
+  --color-e0e0e0: #E0E0E0;
+  --color-F6F7F8: #F6F7F8;
+  --color-E3E4E6: #E3E4E6;
+  --color-f4f0ff: #f4f0ff;
+  --color-E66FD2: #E66FD2;
+  --color-8C6FE6: #8C6FE6;
+
+  /* Font/text values */
+  --font-family-manrope: Manrope;
+  --font-style-normal: normal;
+  --font-weight-800: 800;
+  --font-weight-normal: normal;
+  --font-weight-bold: bold;
+  --font-size-14: 14px;
+  --font-size-18: 18px;
+  --font-size-24: 24px;
+  --character-spacing-0: 0px;
+  --line-spacing-19: 19px;
+  --line-spacing-24: 24px;
+  --line-spacing-33: 33px;
+  --text-transform-titlecase: titlecase;
+}

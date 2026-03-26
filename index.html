@@ -12,285 +12,361 @@
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-  <body>
+<body>
 
-    <!-- NAVIGATIONBAR -->
+  <!-- NAVIGATIONBAR -->
 
-    <nav class="navbar">
+  <nav class="navbar">
 
-      <div class="nav-logo">
-        <img src="./assets/icons/TestLogo.png" alt="Tech Care Logo">
+    <div class="nav-logo">
+      <img src="./assets/icons/TestLogo.png" alt="Tech Care Logo">
+    </div>
+
+    <ul class="nav-menu">
+      <li>
+        <img src="./assets/icons/home.png" alt="Overview Icon">
+        <span>Overview</span>
+      </li>
+
+      <li class="active">
+        <img src="./assets/icons/group.png" alt="Patients Icon">
+        <span>Patients</span>
+      </li>
+
+      <li>
+        <img src="./assets/icons/calendar_today.png" alt="Schedule Icon">
+        <span>Schedule</span>
+      </li>
+
+      <li>
+        <img src="./assets/icons/chat_bubble.png" alt="Message Icon">
+        <span>Message</span>
+      </li>
+
+      <li>
+        <img src="./assets/icons/credit_card.png" alt="Transactions Icon">
+        <span>Transactions</span>
+      </li>
+    </ul>
+
+    <div class="nav-doctor-info">
+      <img class="doctor-picture" src="./assets/images/senior_woman_doctor.png" alt="Doctor">
+
+      <div class="doctor-text">
+        <p class="body-emphasized-14pt">Dr. Jose Simmons</p>
+        <span class="body-secondary-info-14pt">General Practitioner</span>
       </div>
 
-      <ul class="nav-menu">
-        <li>
-          <img src="./assets/icons/home.png" alt="Overview Icon">
-          <span>Overview</span>
-        </li>
-
-        <li class="active">
-          <img src="./assets/icons/group.png" alt="Patients Icon">
-          <span>Patients</span>
-        </li>
-
-        <li>
-          <img src="./assets/icons/calendar_today.png" alt="Schedule Icon">
-          <span>Schedule</span>
-        </li>
-
-        <li>
-          <img src="./assets/icons/chat_bubble.png" alt="Message Icon">
-          <span>Message</span>
-        </li>
-
-        <li>
-          <img src="./assets/icons/credit_card.png" alt="Transactions Icon">
-          <span>Transactions</span>
-        </li>
-      </ul>
-
-      <div class="nav-doctor-info">
-        <img class="doctor-picture" src="./assets/images/senior_woman_doctor.png" alt="Doctor">
-
-        <div class="doctor-text">
-          <p class="body-emphasized-14pt">Dr. Jose Simmons</p>
-          <span class="body-secondary-info-14pt">General Practitioner</span>
-        </div>
-
-        <div class="cta-icons">
-          <img src="./assets/icons/settings.png" alt="Settings">
-          <img src="./assets/icons/more@2x.png" alt="More options">
-        </div>
+      <div class="cta-icons">
+        <img src="./assets/icons/settings.png" alt="Settings">
+        <img src="./assets/icons/more@2x.png" alt="More options">
       </div>
+    </div>
 
-    </nav>
+  </nav>
 
-    <!-- DASHBOARD -->
+  <!-- DASHBOARD -->
 
-    <main class="dashboard">
+  <main class="dashboard">
 
-      <!-- LEFT COLUMN -->
-      <aside class="patients-panel">
+    <!-- LEFT COLUMN -->
+    <aside class="patients-panel">
 
-        <section id="patientsSection">
+      <section id="patientsSection">
 
-          <header class="section-header">
-            <h2 class="card-title-24pt">Patients</h2>
-            <img src="./assets/icons/search.png" alt="Search">
-          </header>
+        <header class="section-header">
+          <h2 class="card-title-24pt">Patients</h2>
+          <img src="./assets/icons/search.png" alt="Search">
+        </header>
 
-          <div class="patients-list">
+        <div class="patients-list">
 
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer8.png" alt="Emily Williams">
-              <div class="patient-info">
-                <p class="patient-name">Emily Williams</p>
-                <p class="patient-meta">Female, 18</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer8.png" alt="Emily Williams">
+            <div class="patient-info">
+              <p class="patient-name">Emily Williams</p>
+              <p class="patient-meta">Female, 18</p>
             </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer1.png" alt="Ryan Johnson">
-              <div class="patient-info">
-                <p class="patient-name">Ryan Johnson</p>
-                <p class="patient-meta">Male, 45</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer3.png" alt="Brandon Mitchell">
-              <div class="patient-info">
-                <p class="patient-name">Brandon Mitchell</p>
-                <p class="patient-meta">Male, 36</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- SELECTED PATIENT -->
-            <div class="patient-item active">
-              <img class="patient-picture" src="./assets/images/layer2.png" alt="Jessica Taylor">
-              <div class="patient-info">
-                <p class="patient-name">Jessica Taylor</p>
-                <p class="patient-meta">Female, 28</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer6.png" alt="Samantha Johnson">
-              <div class="patient-info">
-                <p class="patient-name">Samantha Johnson</p>
-                <p class="patient-meta">Female, 56</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer12.png" alt="Ashley Martinez">
-              <div class="patient-info">
-                <p class="patient-name">Ashley Martinez</p>
-                <p class="patient-meta">Female, 54</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer10.png" alt="Olivia Brown">
-              <div class="patient-info">
-                <p class="patient-name">Olivia Brown</p>
-                <p class="patient-meta">Female, 32</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer9.png" alt="Tyler Davis">
-              <div class="patient-info">
-                <p class="patient-name">Tyler Davis</p>
-                <p class="patient-meta">Male, 19</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer4.png" alt="Kevin Anderson">
-              <div class="patient-info">
-                <p class="patient-name">Kevin Anderson</p>
-                <p class="patient-meta">Male, 30</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer5.png" alt="Dylan Thompson">
-              <div class="patient-info">
-                <p class="patient-name">Dylan Thompson</p>
-                <p class="patient-meta">Male, 30</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer7.png" alt="Nathan Evans">
-              <div class="patient-info">
-                <p class="patient-name">Nathan Evans</p>
-                <p class="patient-meta">Male, 36</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
-            <!-- PATIENT -->
-            <div class="patient-item">
-              <img class="patient-picture" src="./assets/images/layer11.png" alt="Mike Nolan">
-              <div class="patient-info">
-                <p class="patient-name">Mike Nolan</p>
-                <p class="patient-meta">Male, 31</p>
-              </div>
-              <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
-            </div>
-
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
           </div>
 
-        </section>
-
-      </aside>
-
-      <!-- CENTER COLUMN -->
-
-      <section class="center-panel">
-
-        <h2 class="visually-hidden">Patient Data</h2>
-
-        <section id="diagnosisHistorySection">
-
-          <h2 class="card-title-24pt">Diagnosis History</h2>
-
-          <div id="renderDiagnosisHistory">
-
-            <div class="loading-state">Loading diagnosis history...</div>
-            <div class="error-state">Failed to load diagnosis history.</div>
-
-            <div class="data-state">
-              <canvas id="bloodPressureChart"></canvas>
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer1.png" alt="Ryan Johnson">
+            <div class="patient-info">
+              <p class="patient-name">Ryan Johnson</p>
+              <p class="patient-meta">Male, 45</p>
             </div>
-
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
           </div>
 
-        </section>
-
-        <section id="diagnosticListSection">
-
-          <h2 class="card-title-24pt">Diagnostic List</h2>
-
-          <div id="renderDiagnosticList">
-
-            <div class="loading-state">Loading diagnostic list...</div>
-            <div class="error-state">Failed to load diagnostic list.</div>
-
-            <div class="data-state"></div>
-
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer3.png" alt="Brandon Mitchell">
+            <div class="patient-info">
+              <p class="patient-name">Brandon Mitchell</p>
+              <p class="patient-meta">Male, 36</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
           </div>
 
-        </section>
+          <!-- SELECTED PATIENT -->
+          <div class="patient-item active">
+            <img class="patient-picture" src="./assets/images/layer2.png" alt="Jessica Taylor">
+            <div class="patient-info">
+              <p class="patient-name">Jessica Taylor</p>
+              <p class="patient-meta">Female, 28</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer6.png" alt="Samantha Johnson">
+            <div class="patient-info">
+              <p class="patient-name">Samantha Johnson</p>
+              <p class="patient-meta">Female, 56</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer12.png" alt="Ashley Martinez">
+            <div class="patient-info">
+              <p class="patient-name">Ashley Martinez</p>
+              <p class="patient-meta">Female, 54</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer10.png" alt="Olivia Brown">
+            <div class="patient-info">
+              <p class="patient-name">Olivia Brown</p>
+              <p class="patient-meta">Female, 32</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer9.png" alt="Tyler Davis">
+            <div class="patient-info">
+              <p class="patient-name">Tyler Davis</p>
+              <p class="patient-meta">Male, 19</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer4.png" alt="Kevin Anderson">
+            <div class="patient-info">
+              <p class="patient-name">Kevin Anderson</p>
+              <p class="patient-meta">Male, 30</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer5.png" alt="Dylan Thompson">
+            <div class="patient-info">
+              <p class="patient-name">Dylan Thompson</p>
+              <p class="patient-meta">Male, 30</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer7.png" alt="Nathan Evans">
+            <div class="patient-info">
+              <p class="patient-name">Nathan Evans</p>
+              <p class="patient-meta">Male, 36</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+          <!-- PATIENT -->
+          <div class="patient-item">
+            <img class="patient-picture" src="./assets/images/layer11.png" alt="Mike Nolan">
+            <div class="patient-info">
+              <p class="patient-name">Mike Nolan</p>
+              <p class="patient-meta">Male, 31</p>
+            </div>
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+          </div>
+
+        </div>
 
       </section>
 
-      <!-- RIGHT COLUMN -->
+    </aside>
 
-      <aside class="right-panel">
+    <!-- CENTER COLUMN -->
 
-        <section id="patientProfileSection">
+    <section class="center-panel">
 
-          <h2 class="card-title-24pt">Patient Profile</h2>
+      <h2 class="visually-hidden">Patient Data</h2>
 
-          <div id="renderPatientProfile">
+      <section id="diagnosisHistorySection">
 
-            <div class="loading-state">Loading patient profile...</div>
-            <div class="error-state">Failed to load patient profile.</div>
+        <h2 class="card-title-24pt">Diagnosis History</h2>
 
-            <div class="data-state"></div>
+        <div id="renderDiagnosisHistory">
+
+          <div class="loading-state">Loading diagnosis history...</div>
+          <div class="error-state">Failed to load diagnosis history.</div>
+
+          <div class="data-state">
+
+            <!-- CHART CARD -->
+            <div class="history-chart-wrapper">
+
+              <!-- LEFT: CHART -->
+              <div class="chart-area">
+                <p class="chart-title">Blood Pressure</p>
+                <canvas id="bloodPressureChart"></canvas>
+              </div>
+
+              <!-- RIGHT: BP STATS -->
+              <div class="bp-stats">
+
+                <div class="bp-item">
+                  <div class="bp-header">
+                    <span class="dot systolic"></span> <!-- The dot for systolic blood pressure -->
+                    <span class="label">Systolic</span>
+                  </div>
+                  <h3 id="systolicValue">--</h3>
+                  <span id="systolicStatus" class="status">Higher than Average</span>
+                </div>
+
+                <hr>
+
+                <div class="bp-item">
+                  <div class="bp-header">
+                    <span class="dot diastolic"></span> <!-- The dot for diastolic blood pressure -->
+                    <span class="label">Diastolic</span>
+                  </div>
+                  <h3 id="diastolicValue">--</h3>
+                  <span id="diastolicStatus" class="status">Lower than Average</span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- VITAL CARDS -->
+            <div class="vitals-cards-grid">
+
+              <!-- Respiratory -->
+              <div class="vitals-card respiratory">
+                <div class="vitals-header">
+                  <div class="icon-circle">
+                    <img src="./assets/images/respiratory_rate.png">
+                  </div>
+                  <h3>Respiratory Rate</h3>
+                </div>
+                <p id="respiratoryRateValue"></p>
+                <span id="respiratoryRateStatus" class="vitals-status"></span>
+              </div>
+
+              <!-- Temperature -->
+              <div class="vitals-card temperature">
+                <div class="vitals-header">
+                  <div class="icon-circle">
+                    <img src="./assets/images/temperature.png">
+                  </div>
+                  <h3>Temperature</h3>
+                </div>
+                <p id="temperatureValue"></p>
+                <span id="temperatureStatus" class="vitals-status"></span>
+              </div>
+
+              <!-- Heart -->
+              <div class="vitals-card heart">
+                <div class="vitals-header">
+                  <div class="icon-circle">
+                    <img src="./assets/images/heartBPM.png">
+                  </div>
+                  <h3>Heart Rate</h3>
+                </div>
+                <p id="heartRateValue"></p>
+                <span id="heartRateStatus" class="vitals-status"></span>
+              </div>
+
+            </div>
 
           </div>
+        </div>
 
-        </section>
+      </section>
 
-        <section id="labResultsSection">
+      <section id="diagnosticListSection">
 
-          <h2 class="card-title-24pt">Lab Results</h2>
+        <h2 class="card-title-24pt">Diagnostic List</h2>
 
-          <div id="renderLabResults">
+        <div id="renderDiagnosticList">
 
-            <div class="loading-state">Loading lab results...</div>
-            <div class="error-state">Failed to load lab results.</div>
+          <div class="loading-state">Loading diagnostic list...</div>
+          <div class="error-state">Failed to load diagnostic list.</div>
 
-            <div class="data-state"></div>
+          <div class="data-state"></div>
 
-          </div>
+        </div>
 
-        </section>
+      </section>
 
-      </aside>
+    </section>
 
-    </main>
+    <!-- RIGHT COLUMN -->
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <aside class="right-panel">
 
-    <!-- Main JS -->
-    <script type="module" src="./js/main.js"></script>
+      <section id="patientProfileSection">
 
-  </body>
+        <h2 class="card-title-24pt">Patient Profile</h2>
+
+        <div id="renderPatientProfile">
+
+          <div class="loading-state">Loading patient profile...</div>
+          <div class="error-state">Failed to load patient profile.</div>
+
+          <div class="data-state"></div>
+
+        </div>
+
+      </section>
+
+      <section id="labResultsSection">
+
+        <h2 class="card-title-24pt">Lab Results</h2>
+
+        <div id="renderLabResults">
+
+          <div class="loading-state">Loading lab results...</div>
+          <div class="error-state">Failed to load lab results.</div>
+
+          <div class="data-state"></div>
+
+        </div>
+
+      </section>
+
+    </aside>
+
+  </main>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Main JS -->
+  <script type="module" src="./js/main.js"></script>
+
+</body>
 
 </html>

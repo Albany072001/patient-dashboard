@@ -1,156 +1,115 @@
-export function renderDiagnosisHistory(patient) { // Render the diagnosis history chart for the patient.
-  const container = document.getElementById("renderDiagnosisHistory"); // Get the container element for rendering the diagnosis history.
-  if (!container) return; // If the container is not found, exit the function.
+export function renderDiagnosisHistory(patient) { // Render the diagnosis history for the patient.
+  const container = document.getElementById("renderDiagnosisHistory"); // Get the container element for the diagnosis history section.
+  if (!container) return;
 
-  const loading = container.querySelector(".loading-state"); // Get the loading state element.
-  const error = container.querySelector(".error-state"); // Get the error state element.
+  const loading = container.querySelector(".loading-state"); // Get the loading state element within the diagnosis history container.
+  const error = container.querySelector(".error-state");
+  const dataState = container.querySelector(".data-state");
 
-  if (!patient.diagnosis_history || patient.diagnosis_history.length === 0) { // If there is no diagnosis history, show the error state.
-    loading.style.display = "none"; // Hide the loading state.
-    error.style.display = "block"; // Show the error state.
+  const history = patient?.diagnosis_history; // Access the diagnosis history from the patient object, using optional chaining to avoid errors if the property is missing.
+
+  if (!Array.isArray(history) || history.length === 0) { // If the diagnosis history is not an array or is empty, log an error.
+    loading.style.display = "none";
+    error.style.display = "block";
+    dataState.style.display = "none";
     return;
   }
 
   loading.style.display = "none";
   error.style.display = "none";
+  dataState.style.display = "block";
 
-  const dataState = container.querySelector(".data-state"); // Get the data state element.
-  dataState.innerHTML = `
-    <div class="history-chart-wrapper"><canvas id="bloodPressureChart"></canvas></div>
-    <div class="vitals-cards-grid" id="diagnosisVitalsCards"></div>
-  `; // Add chart wrapper + vitals cards container.
-  dataState.style.display = "block"; // Show the data state.
+  // ---------------- CHART ----------------
+  const canvas = container.querySelector("#bloodPressureChart"); // Get the canvas element for the blood pressure chart within the diagnosis history section.
 
-  const canvas = document.getElementById("bloodPressureChart"); // Get the canvas element for rendering the chart.
-  if (!canvas) { // If the canvas element is not found, log an error.
-    console.error("Canvas element for chart not found!");
-    return;
+  const labels = history.map(d => `${d.month} ${d.year}`); // Create an array of labels for the chart by mapping over the diagnosis history and formatting the month and year for each entry.
+  const systolicData = history.map(d => d.blood_pressure.systolic.value); // Create an array of systolic blood pressure values from the diagnosis history for the chart.
+  const diastolicData = history.map(d => d.blood_pressure.diastolic.value); // Create an array of diastolic blood pressure values from the diagnosis history for the chart.
+
+  if (canvas.chartInstance) { // If a chart instance already exists on the canvas, destroy it before creating a new one.
   }
 
-  const labels = patient.diagnosis_history.map(d => `${d.month} ${d.year}`); // Get the labels for the chart.
-  const systolicData = patient.diagnosis_history.map(d => d.blood_pressure.systolic.value); // Get the systolic blood pressure data for the chart.
-  const diastolicData = patient.diagnosis_history.map(d => d.blood_pressure.diastolic.value); // Get the diastolic blood pressure data for the chart.
-
-  if (canvas.chartInstance) { // If there is an existing chart instance, destroy it before creating a new one.
-    canvas.chartInstance.destroy();
-  }
-
-  canvas.chartInstance = new Chart(canvas, {
-    type: "line",
+  canvas.chartInstance = new Chart(canvas, { // Create a new Chart.js instance on the canvas element, specifying the type of chart and the data to be displayed.
+    type: "line", // Specify the type of chart to create (line chart in this case).
     data: {
       labels,
-      datasets: [
+      datasets: [ // Define the datasets for the chart
         {
           label: "Systolic",
           data: systolicData,
-          borderColor: "#D977EF", // soft pink/purple
-          borderWidth: 2,
-          tension: 0.45,
-          pointRadius: 2.5,
-          pointHoverRadius: 4
+          borderColor: "#E66FD2",
+          tension: 0.4
         },
         {
           label: "Diastolic",
           data: diastolicData,
-          borderColor: "#7C83FD", // soft blue/purple
-          borderWidth: 2,
-          tension: 0.45,
-          pointRadius: 2.5,
-          pointHoverRadius: 4
+          borderColor: "#8C6FE6",
+          tension: 0.4
         }
       ]
     },
-    options: {
+    options: { // Configure the options for the chart, including responsiveness and legend display.
       responsive: true,
       maintainAspectRatio: false,
-
-      layout: {
-        padding: {
-          top: 6,
-          right: 6,
-          bottom: 0,
-          left: 0
-        }
-      },
-
-
       plugins: {
         legend: {
-          position: "top",
-          align: "end", 
-          labels: {
-            usePointStyle: true,
-            pointStyle: "circle",
-            boxWidth: 6,
-            boxHeight: 10,
-            padding: 16,
-            font: {
-              size: 11,
-              weight: "500"
-            },
-            color: "#6B7280" // subtle gray
-          }
-        },
-        tooltip: {
-          backgroundColor: "#fff",
-          titleColor: "#111",
-          bodyColor: "#111",
-          borderColor: "#E5E7EB",
-          borderWidth: 1
+          display: false
         }
       },
-
-      scales: {
-        x: {
-          grid: {
-            display: false //
-          },
-          ticks: {
-            color: "#9CA3AF",
-            font: {
-              size: 10
-            }
-          }
-        },
-        y: {
-          grid: {
-            color: "#E9E6F7", // 👈 very soft grid
-            drawBorder: false
-          },
-          ticks: {
-            color: "#9CA3AF",
-            font: {
-              size: 10
-            },
-            padding: 6
-          }
-        }
-      }
     }
   });
 
-  // Render latest vitals cards (respiratory rate, temperature, heart rate).
-  const latestEntry = patient.diagnosis_history[patient.diagnosis_history.length - 1]; 
-  const vitalsContainer = document.getElementById("diagnosisVitalsCards");
+  // ---------------- VITALS ----------------
+  const latest = history.at(-1); // Get the most recent diagnosis entry for displaying current vitals.
 
-  if (vitalsContainer && latestEntry) {
-    const respiratoryRate = latestEntry.respiratory_rate ?? latestEntry.vitals?.respiratory_rate ?? "N/A";
-    const temperature = latestEntry.temperature ?? latestEntry.vitals?.temperature ?? "N/A";
-    const heartRate = latestEntry.heart_rate ?? latestEntry.vitals?.heart_rate ?? "N/A";
+  const setText = (id, value) => { // Helper function to set text content of an element by ID, with a check for element existence.
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
 
-    vitalsContainer.innerHTML = `
-      <div class="vitals-card">
-        <h3>Respiratory Rate</h3>
-        <p>${respiratoryRate} bpm</p>
-      </div>
-      <div class="vitals-card">
-        <h3>Temperature</h3>
-        <p>${temperature} °F</p>
-      </div>
-      <div class="vitals-card">
-        <h3>Heart Rate</h3>
-        <p>${heartRate} bpm</p>
-      </div>
-    `;
-  }
+  // Blood Pressure ledgend values
+  document.getElementById("systolicValue").textContent =
+    latest?.blood_pressure?.systolic?.value ?? "--";
+
+  document.getElementById("diastolicValue").textContent =
+    latest?.blood_pressure?.diastolic?.value ?? "--";
+
+  // Respiratory
+  setText( // Set the respiratory rate value, formatting it with "bpm" if available, or showing "N/A" if not.
+    "respiratoryRateValue",
+    latest?.respiratory_rate?.value != null
+      ? `${latest.respiratory_rate.value} bpm`
+      : "N/A"
+  );
+
+  setText( // Set the respiratory rate status based on the levels provided in the latest diagnosis entry, or show an empty string if not available.
+    "respiratoryRateStatus",
+    latest?.respiratory_rate?.levels ?? ""
+  );
+
+  // Temperature 
+  setText( // Set the temperature value, formatting it with "°F" if available, or showing "N/A" if not.
+    "temperatureValue",
+    latest?.temperature?.value != null
+      ? `${latest.temperature.value} °F`
+      : "N/A"
+  );
+
+  setText( // Set the temperature status based on the levels provided in the latest diagnosis entry, or show an empty string if not available.
+    "temperatureStatus",
+    latest?.temperature?.levels ?? ""
+  );
+
+  // Heart Rate
+  setText( // Set the heart rate value, formatting it with "bpm" if available, or showing "N/A" if not.
+    "heartRateValue",
+    latest?.heart_rate?.value != null
+      ? `${latest.heart_rate.value} bpm`
+      : "N/A"
+  );
+
+  setText( // Set the heart rate status based on the levels provided in the latest diagnosis entry, or show an empty string if not available.
+    "heartRateStatus",
+    latest?.heart_rate?.levels ?? ""
+  );
 }
