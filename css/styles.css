@@ -3,22 +3,10 @@
 :root {
 
 /* Colors: */
---color-705aaa: #705AAA;
---color-cbc8d4: #CBC8D4;
 --color-d8fcf7: #D8FCF7;
 --color-01f0d0: #01F0D0;
---color-0bd984: #0BD984;
 --color-072635: #072635;
---color-0c3d5d: #0C3D5D;
---color-084c77: #084C77;
---color-055a92: #055A92;
---color-006aac: #006AAC;
---color-007bc7: #007BC7;
 --color-707070: #707070;
---color-f6f6f6: #F6F6F6;
---color-ededed: #EDEDED;
---color-000000: #000000;
---color-878787: #878787;
 --color-ffffff: #FFFFFF;
 --color-ff6200: #FF6200;
 --color-e0e0e0: #E0E0E0;
@@ -52,17 +40,6 @@ letter-spacing: var(--character-spacing-0);
 color: var(--color-072635);
 }
 
-.inner-card-title-18pt {
-font-family: var(--font-family-manrope);
-font-style: var(--font-style-normal);
-font-weight: var(--font-weight-bold);
-font-size: var(--font-size-18);
-line-height: var(--line-spacing-24);
-letter-spacing: var(--character-spacing-0);
-color: var(--color-072635);
-text-transform: var(--text-transform-titlecase);
-}
-
 .body-emphasized-14pt {
 font-family: var(--font-family-manrope);
 font-style: var(--font-style-normal);
@@ -82,16 +59,6 @@ font-size: var(--font-size-14);
 line-height: var(--line-spacing-19);
 letter-spacing: var(--character-spacing-0);
 color: var(--color-707070);
-}
-
-.body-regular-14 {
-font-family: var(--font-family-manrope);
-font-style: var(--font-style-normal);
-font-weight: var(--font-weight-normal);
-font-size: var(--font-size-14);
-line-height: var(--line-spacing-19);
-letter-spacing: var(--character-spacing-0);
-color: var(--color-072635);
 }
 
 body {
@@ -203,17 +170,83 @@ div.cta-icons {
 /* Dashboard Layout */
 .dashboard {
   display: grid;
-  grid-template-columns: 360px 1fr 360px;
+  grid-template-columns: minmax(240px, 360px) 1fr minmax(240px, 360px);
   gap: 30px;
   padding: 0 20px 20px;
-  align-items: flex-start;
+  align-items: start;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent slider effect */
+  box-sizing: border-box;
 }
 
 .patients-panel, .center-panel, .right-panel {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  min-width: 0; /* allow children to shrink inside grid */
 }
+
+/* Card spacing and overflow safety */
+#diagnosisHistorySection,
+#diagnosticListSection,
+#patientProfileSection,
+#labResultsSection,
+#patientsSection {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Ensure card inner content wraps properly */
+.patient-item,
+.section-header,
+.nav-menu,
+.doctor-text,
+.cta-icons {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 12px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 0 10px 12px;
+  }
+  #diagnosisHistorySection,
+  #diagnosticListSection,
+  #patientProfileSection,
+  #labResultsSection,
+  #patientsSection {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 8px 10px;
+  }
+  #diagnosisHistorySection,
+  #diagnosticListSection,
+  #patientProfileSection,
+  #labResultsSection,
+  #patientsSection {
+    padding: 12px;
+  }
+}
+
 
 /* Visually hidden class for accessibility */
 .visually-hidden {
@@ -342,8 +375,45 @@ div.cta-icons {
   border-radius: 16px;
   display: block;
   padding: 24px;
-  height: 425px;
+  min-height: 425px;
   box-shadow: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 100%;
+}
+
+#diagnosisHistorySection .history-chart-wrapper {
+  width: 100%;
+  min-height: 230px;
+  margin-bottom: 18px;
+}
+
+#diagnosisHistorySection .vitals-cards-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#diagnosisHistorySection .vitals-card {
+  flex: 1 1 120px;
+  min-width: 110px;
+  background: var(--color-d8fcf7);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid var(--color-e0e0e0);
+}
+
+#diagnosisHistorySection .vitals-card h3 {
+  font-size: var(--font-size-14);
+  margin: 0 0 6px;
+  color: var(--color-072635);
+}
+
+#diagnosisHistorySection .vitals-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-0c3d5d);
 }
 
 /* Diagnosis list section*/
@@ -373,7 +443,6 @@ div.cta-icons {
   padding: 24px;
   height: 250px;
 }
-
 
 /*Media query for mobile responsiveness */
 /*Mobile: 480px and below*/
