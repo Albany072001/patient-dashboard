@@ -339,12 +339,14 @@ div.cta-icons {
   font-size: var(--font-size-18);
   color: var(--color-072635);
   position: absolute;
-  align-self: left;
+  top: 16px;       /* distance from top of .chart-area */
+  left: 0;         /* align to the left */
+  margin: 0;
 }
 
 .chart-area {
   flex: 1;
-  padding-top: 25px;
+  padding-top: 50px;  /* increase this so the chart doesn't start under the title */
   min-height: 260px;
   position: relative;
 }
@@ -379,14 +381,19 @@ div.cta-icons {
 .bp-item .label {
   font-family: var(--font-family-manrope);
   font-weight: var(--font-weight-bold);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--color-072635);
 }
 
-.bp-item h3 {
-  font-size: 24px;
-  margin: 0;
-  font-weight: 800;
+#systolicValue {
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-072635);
+}
+
+#diastolicValue {
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-bold);
   color: var(--color-072635);
 }
 
@@ -408,6 +415,7 @@ div.cta-icons {
 /* Status text */
 .status {
   font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-normal);
   font-size: 14px;
   color: var(--color-072635);
 }
@@ -431,23 +439,24 @@ div.cta-icons {
 .vitals-card {
   flex: 1;
   border-radius: 16px;
-  padding: 18px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 /* Colors */
 .vitals-card.respiratory {
-  background: #d8f3f7;
+  background: var(--color-E0F3FA);
 }
 
 .vitals-card.temperature {
-  background: #f7dede;
+  background: var(--color-FFE6E9);
 }
 
 .vitals-card.heart {
-  background: #f3e0ea;
+  background: var(--color-FFE6F1);
 }
 
 /* Header */
@@ -459,40 +468,77 @@ div.cta-icons {
 
 /* Icon circle */
 .icon-circle {
-  width: 44px;
-  height: 44px;
+  width: 96px;
+  height: 96px;
   background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 12px;
 }
 
 .icon-circle img {
-  width: 22px;
-  height: 22px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
 
 /* Title */
-.vitals-header h3 {
-  font-size: 14px;
+h3 {
+  font-family: var(--font-family-manrope);
+  color: var(--color-072635);
+  font-size: 16px;
   margin: 0;
-  color: #072635;
+  padding: 0;
 }
 
 /* Value */
 .vitals-card p {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 800;
-  margin: 12px 0 4px;
-  color: #072635;
+  margin: 0;
+  color: var(--color-072635);
 }
 
 /* Status */
 .vitals-status {
-  font-size: 13px;
-  color: #6b7280;
+  font-size: 14px;
+  font-family: var(--font-family-manrope);
+  color: var(--color-072635);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
+
+
+/*Rate value*/
+#respiratoryRateValue {
+  font-family: var(--font-family-manrope);
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-072635);
+
+}
+
+#temperatureValue {
+  font-family: var(--font-family-manrope);
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-072635);
+}
+
+#heartRateValue {
+  font-family: var(--font-family-manrope);
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-072635);
+}
+
+/*
 
 /* OTHER SECTIONS */
 
