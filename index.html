@@ -312,21 +312,37 @@
         </div>
       </section>
 
-      <section id="diagnosticListSection">
+      <section id="diagnosticListSection" class="diagnostic-card">
 
         <h2 class="card-title-24pt">Diagnostic List</h2>
 
-        <div id="renderDiagnosticList">
+        <div id="renderDiagnosticList" class="diagnostic-container">
 
+          <!-- States -->
           <div class="loading-state">Loading diagnostic list...</div>
           <div class="error-state">Failed to load diagnostic list.</div>
 
-          <div class="data-state"></div>
+          <!-- Data will be injected here -->
+          <div class="data-state">
+            <div class="table-wrapper">
+              <table class="diagnostic-table">
 
+                <thead>
+                  <tr>
+                    <th>Problem/Diagnosis</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="diagnosticListBody">
+                  <!-- API will inject rows here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-
       </section>
-
     </section>
 
     <!-- RIGHT COLUMN -->
