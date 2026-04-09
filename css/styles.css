@@ -5,6 +5,7 @@
    TYPOGRAPHY
    ============================================= */
 
+   /* 24pt is used for the main dashboard title and section headers. */
 .card-title-24pt {
   font-family: var(--font-family-manrope);
   font-style: normal;
@@ -15,7 +16,8 @@
   color: var(--color-072635);
 }
 
-.body-emphasized-14pt {
+/* 14pt is the default body text size, used in most places.*/
+.body-emphasized-14pt { /* used for patient names and vitals values — anywhere else to draw extra attention */
   font-family: var(--font-family-manrope);
   font-style: normal;
   font-weight: 700;
@@ -26,6 +28,7 @@
   color: var(--color-072635);
 }
 
+/* 14pt with normal weight is used for secondary information, like patient metadata and vitals status. */
 .body-secondary-info-14pt {
   font-family: var(--font-family-manrope);
   font-style: normal;
@@ -153,8 +156,9 @@ div.cta-icons {
   grid-template-columns: minmax(240px, 360px) 1fr minmax(240px, 360px);
   gap: 30px;
   padding: 0 20px 20px;
-  align-items: start;
+  align-items: stretch;
   box-sizing: border-box;
+  min-height: calc(100vh - 140px);
 }
 
 .patients-panel,
@@ -164,6 +168,7 @@ div.cta-icons {
   flex-direction: column;
   gap: 30px;
   min-width: 0;
+  flex: 1;
 }
 
 /* =============================================
@@ -174,13 +179,14 @@ div.cta-icons {
 #patientsSection {
   box-sizing: border-box;
   width: 100%;
-  height: 825px;           /* matches center column height */
+  flex: 1;
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .section-header {
@@ -265,7 +271,10 @@ div.cta-icons {
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
-  overflow: visible;       /* no scrollbar — grows with content */
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 #diagnosticListSection {
@@ -274,22 +283,33 @@ div.cta-icons {
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.diagnostic-card {
+  box-sizing: border-box;
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
 /* =============================================
    RIGHT COLUMN
-   Two cards whose heights sum to 825px
-   (500 + 30px gap + 295 = 825).
+   Two cards that flex equally and fill available height.
    ============================================= */
 
 #patientProfileSection {
   box-sizing: border-box;
   width: 100%;
-  min-height: 500px;
+  flex: 1;
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
-  overflow-y: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -297,11 +317,11 @@ div.cta-icons {
 #labResultsSection {
   box-sizing: border-box;
   width: 100%;
-  min-height: 295px;
+  flex: 1;
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
-  overflow-y: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -309,6 +329,24 @@ div.cta-icons {
 /* =============================================
    UI STATES
    ============================================= */
+
+#renderDiagnosisHistory,
+#renderDiagnosticList,
+#renderPatientProfile,
+#renderLabResults {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: visible;
+}
+
+#diagnosisHistorySection h2,
+#diagnosticListSection h2,
+#patientProfileSection h2,
+#labResultsSection h2 {
+  flex-shrink: 0;
+  margin-bottom: 16px;
+}
 
 .loading-state {
   font-family: var(--font-family-manrope);
@@ -328,6 +366,9 @@ div.cta-icons {
 
 .data-state {
   display: none;
+  flex: 1;
+  overflow-y: auto;
+  min-width: 0;
 }
 
 /* =============================================
@@ -341,15 +382,19 @@ div.cta-icons {
   display: flex;
   gap: 12px;
   align-items: stretch;
-  margin-top: 25px;
-  margin-bottom: 20px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  max-height: 500px;
 }
 
 .chart-area {
   flex: 1;
   padding-top: 50px;
   min-height: 260px;
+  max-height: 500px;
   position: relative;
+  overflow: hidden;
 }
 
 .chart-title {
@@ -429,7 +474,8 @@ div.cta-icons {
 .vitals-cards-grid {
   display: flex;
   gap: 18px;
-  margin-top: 18px;
+  margin-top: 12px;
+  flex-shrink: 0;
 }
 
 .vitals-card {
@@ -497,13 +543,16 @@ h3 {
    ============================================= */
 
 .diagnostic-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
 }
 
 .table-wrapper {
-  max-height: 220px;
+  flex: 1;
   overflow-y: auto;
-  margin-top: 16px;
+  margin-top: 0;
 }
 
 .diagnostic-table {
@@ -547,6 +596,77 @@ h3 {
 
 .diagnostic-table tbody tr:last-child td { border-bottom: none; }
 .diagnostic-table tbody tr:hover { background-color: #f9fafb; }
+
+/* =============================================
+   LAB RESULTS
+   ============================================= */
+
+.lab-result-item {
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lab-result-item:last-child {
+  border-bottom: none;
+}
+
+.lab-test-name {
+  font-family: var(--font-family-manrope);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-072635);
+}
+
+.lab-test-value {
+  font-family: var(--font-family-manrope);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-072635);
+}
+
+.lab-reference {
+  font-family: var(--font-family-manrope);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-707070);
+}
+
+.lab-status {
+  font-family: var(--font-family-manrope);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.lab-status.normal,
+.lab-status.normal-range {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.lab-status.high,
+.lab-status.above-normal,
+.lab-status.elevated {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.lab-status.low,
+.lab-status.below-normal {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.lab-status.critical {
+  background-color: #7f1d1d;
+  color: #ffffff;
+}
 
 /* =============================================
    ACCESSIBILITY

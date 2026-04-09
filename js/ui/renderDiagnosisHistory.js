@@ -112,4 +112,15 @@ export function renderDiagnosisHistory(patient) { // Render the diagnosis histor
     "heartRateStatus",
     latest?.heart_rate?.levels ?? ""
   );
+
+  // Update heart rate icon based on status
+  const heartRateIcon = document.getElementById("heartRateIcon");
+  if (heartRateIcon && latest?.heart_rate?.levels) {
+    const status = latest.heart_rate.levels.toLowerCase();
+    if (status.includes("higher") || status.includes("above")) {
+      heartRateIcon.src = "./assets/icons/ArrowUp.png";
+    } else if (status.includes("lower") || status.includes("below")) {
+      heartRateIcon.src = "./assets/icons/ArrowDown.png";
+    }
+  }
 }
