@@ -623,32 +623,33 @@ h3 {
 
 .diagnostic-table {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
+  border-collapse: separate; 
+  border-spacing: 0;         /* keeps it tight */
 }
 
-.diagnostic-table thead {
-  background: var(--color-f2f3f5);
-  border-radius: 12px;
-  display: table;
-  width: 100%;
-}
-
-.diagnostic-table thead tr {
-  display: table;
-  width: 100%;
-}
 
 .diagnostic-table thead th {
-  background: var(--color-f2f3f5);
-  text-align: left;
+  background: var(--color-F6F7F8);
   padding: 12px 14px;
-  position: sticky;
-  top: 0;
+  text-align: left;
   font-family: var(--font-family-manrope);
   font-weight: 700;
   font-size: 13px;
   color: var(--color-072635);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+/* Lelf side (top + bottom) */
+.diagnostic-table thead th:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+/* Right side (top + bottom) */
+.diagnostic-table thead th:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .diagnostic-table tbody td {
