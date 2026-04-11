@@ -198,12 +198,34 @@ div.cta-icons {
 }
 
 .patients-list {
-  overflow-y: auto;
+  overflow-y: scroll;
   flex-grow: 1;            /* take all remaining height in the card */
   flex-shrink: 1;
   flex-basis: 0%;
   scrollbar-width: thin;
-  scrollbar-color: var(--color-072635) var(--color-E3E4E6);
+  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Webkit scrollbar styling (Chrome, Safari, Edge) */
+.patients-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.patients-list::-webkit-scrollbar-track {
+  background-color: var(--color-e0e0e0);
+  border-radius: 4px;
+}
+
+.patients-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-072635);
+  border-radius: 4px;
+  border: 2px solid var(--color-e0e0e0);
+}
+
+.patients-list::-webkit-scrollbar-thumb:hover {
+  background-color: #1a3a47;
 }
 
 .patient-item {
@@ -213,7 +235,9 @@ div.cta-icons {
   padding: 10px 12px;
   border-radius: 12px;
   cursor: pointer;
-  gap: 12px;
+  gap: 8px;
+  flex: 1;
+  min-height: 40px;
 }
 
 .patient-item:hover  { background-color: var(--color-F6F7F8); }
@@ -268,6 +292,7 @@ div.cta-icons {
 #diagnosisHistorySection {
   box-sizing: border-box;
   width: 100%;
+  min-height: fit-content;
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
@@ -337,7 +362,7 @@ div.cta-icons {
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow: visible;
+  overflow: hidden;
 }
 
 #diagnosisHistorySection h2,
@@ -369,6 +394,28 @@ div.cta-icons {
   flex: 1;
   overflow-y: auto;
   min-width: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
+}
+
+/* Webkit scrollbar styling (Chrome, Safari, Edge) */
+.data-state::-webkit-scrollbar {
+  width: 8px;
+}
+
+.data-state::-webkit-scrollbar-track {
+  background-color: var(--color-e0e0e0);
+  border-radius: 4px;
+}
+
+.data-state::-webkit-scrollbar-thumb {
+  background-color: var(--color-072635);
+  border-radius: 4px;
+  border: 2px solid var(--color-e0e0e0);
+}
+
+.data-state::-webkit-scrollbar-thumb:hover {
+  background-color: #1a3a47;
 }
 
 /* =============================================
@@ -385,16 +432,13 @@ div.cta-icons {
   margin-top: 12px;
   margin-bottom: 12px;
   flex-shrink: 0;
-  max-height: 500px;
 }
 
 .chart-area {
   flex: 1;
   padding-top: 50px;
   min-height: 260px;
-  max-height: 500px;
   position: relative;
-  overflow: hidden;
 }
 
 .chart-title {
@@ -553,6 +597,28 @@ h3 {
   flex: 1;
   overflow-y: auto;
   margin-top: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
+}
+
+/* Webkit scrollbar styling (Chrome, Safari, Edge) */
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background-color: var(--color-e0e0e0);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--color-072635);
+  border-radius: 4px;
+  border: 2px solid var(--color-e0e0e0);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #1a3a47;
 }
 
 .diagnostic-table {
