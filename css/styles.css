@@ -167,8 +167,8 @@ div.cta-icons {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  min-width: 0;
   flex: 1;
+  min-width: 0;
 }
 
 /* =============================================
@@ -297,7 +297,7 @@ div.cta-icons {
   border-radius: 16px;
   padding: 24px;
   overflow: hidden;
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
 }
@@ -309,9 +309,9 @@ div.cta-icons {
   border-radius: 16px;
   padding: 24px;
   flex: 1;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-height: 0
 }
 
 .diagnostic-card {
@@ -587,16 +587,17 @@ h3 {
    ============================================= */
 
 .diagnostic-container {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   flex: 1;
-  overflow: hidden;
+  min-height: 0;
 }
 
 .table-wrapper {
   flex: 1;
   overflow-y: auto;
   margin-top: 0;
+  min-width: 0;
   scrollbar-width: thin;
   scrollbar-color: var(--color-072635) var(--color-e0e0e0);
 }
@@ -629,18 +630,21 @@ h3 {
 
 
 .diagnostic-table thead th {
-  background: var(--color-F6F7F8);
-  padding: 12px 14px;
-  text-align: left;
   font-family: var(--font-family-manrope);
-  font-weight: 700;
-  font-size: 13px;
+  background: var(--color-F6F7F8);
   color: var(--color-072635);
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-/* Lelf side (top + bottom) */
+/* Left side (top + bottom) */
 .diagnostic-table thead th:first-child {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
