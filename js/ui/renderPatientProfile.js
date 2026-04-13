@@ -72,6 +72,5 @@ export function renderPatientProfile(patient) { // Render the patient profile in
   container.querySelector(".error-state").style.display = "none";
 
   dataState.innerHTML = html;
-  dataState.style.display = "flex";
-  dataState.style.flexDirection = "column";
+  dataState.style.display = "block"; // Show the data state with the rendered patient profile information.  
 }

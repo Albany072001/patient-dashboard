@@ -379,9 +379,10 @@ div.cta-icons {
 #renderDiagnosticList,
 #renderPatientProfile,
 #renderLabResults {
-  display: flex;
+  display: block;
   flex-direction: column;
   flex: 1;
+  max-height: calc(100vh - 140px);
   overflow: hidden;
 }
 
