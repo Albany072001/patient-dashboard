@@ -225,7 +225,7 @@ div.cta-icons {
 }
 
 .patients-list::-webkit-scrollbar-thumb:hover {
-  background-color: #1a3a47;
+  background-color: var(--color-1a3a47);
 }
 
 .patient-item {
@@ -330,7 +330,7 @@ div.cta-icons {
 #patientProfileSection {
   box-sizing: border-box;
   width: 100%;
-  flex: 1;
+  flex: 1.35;
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
@@ -342,13 +342,36 @@ div.cta-icons {
 #labResultsSection {
   box-sizing: border-box;
   width: 100%;
-  flex: 1;
+  flex: 0.3;
   background-color: var(--color-ffffff);
   border-radius: 16px;
   padding: 24px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
+}
+
+/* Webkit scrollbar styling for lab results */
+#labResultsSection::-webkit-scrollbar {
+  width: 8px;
+}
+
+#labResultsSection::-webkit-scrollbar-track {
+  background-color: var(--color-e0e0e0);
+  border-radius: 4px;
+}
+
+#labResultsSection::-webkit-scrollbar-thumb {
+  background-color: var(--color-072635);
+  border-radius: 4px;
+  border: 2px solid var(--color-e0e0e0);
+}
+
+#labResultsSection::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-1a3a47);
 }
 
 /* =============================================
@@ -415,7 +438,7 @@ div.cta-icons {
 }
 
 .data-state::-webkit-scrollbar-thumb:hover {
-  background-color: #1a3a47;
+  background-color: var(--color-1a3a47);
 }
 
 /* =============================================
@@ -479,8 +502,8 @@ div.cta-icons {
 
 .bp-item .label {
   font-family: var(--font-family-manrope);
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-16);
   color: var(--color-072635);
 }
 
@@ -510,7 +533,7 @@ div.cta-icons {
 .bp-stats hr {
   border: none;
   height: 1px;
-  background: #e5e7eb;
+  background: var(--color-e5e7eb);
 }
 
 /* VITALS CARDS */
@@ -560,7 +583,7 @@ div.cta-icons {
 h3 {
   font-family: var(--font-family-manrope);
   color: var(--color-072635);
-  font-size: 16px;
+  font-size: var(--font-size-16);
   margin: 0;
   padding: 0;
 }
@@ -570,8 +593,8 @@ h3 {
 #temperatureValue,
 #heartRateValue {
   font-family: var(--font-family-manrope);
-  font-size: 30px;
-  font-weight: 800;
+  font-size: var(--font-size-30);
+  font-weight: var(--font-weight-800);
   margin: 0;
   color: var(--color-072635);
 }
@@ -580,6 +603,94 @@ h3 {
   font-size: 14px;
   font-family: var(--font-family-manrope);
   color: var(--color-072635);
+}
+
+/* =============================================
+   PATIENT PROFILE
+   ============================================= */
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.profile-header img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 12px;
+}
+
+.profile-header h3 {
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-700);
+  font-size: 24px;
+  color: var(--color-072635);
+  margin: 0;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.profile-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.profile-item p {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+}
+
+.profile-item p:first-of-type {
+  font-weight: var(--font-weight-500);
+  font-size: 16px;
+  color: var(--color-707070);
+  font-family: var(--font-family-manrope);
+}
+
+.profile-item p:last-of-type {
+  font-weight: var(--font-weight-700);
+  font-size: 16px;
+  color: var(--color-072635);
+  margin-top: 4px;
+  font-family: var(--font-family-manrope);
+}
+
+.show-all-btn {
+  background-color: var(--color-00ddb8);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-14);
+  color: var(--color-072635);
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-self: center;
+  min-width: 200px;
+}
+
+.show-all-btn:hover {
+  background-color: var(--color-00ddb8);
 }
 
 /* =============================================
@@ -598,7 +709,10 @@ h3 {
   overflow-y: auto;
   margin-top: 0;
   min-width: 0;
+  overflow-y: scroll;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   scrollbar-color: var(--color-072635) var(--color-e0e0e0);
 }
 
@@ -619,7 +733,7 @@ h3 {
 }
 
 .table-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: #1a3a47;
+  background-color: var(--color-1a3a47);
 }
 
 .diagnostic-table {
@@ -637,8 +751,8 @@ h3 {
   border-bottom: 1px solid transparent;
   text-align: left;
   padding: 12px 14px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-13);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -658,26 +772,27 @@ h3 {
 
 .diagnostic-table tbody td {
   padding: 14px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--color-e5e7eb);
   font-family: var(--font-family-manrope);
   font-weight: 400;
-  font-size: 14px;
+  font-size: var(--font-size-14);
   color: var(--color-072635);
 }
 
 .diagnostic-table tbody tr:last-child td { border-bottom: none; }
-.diagnostic-table tbody tr:hover { background-color: #f9fafb; }
+.diagnostic-table tbody tr:hover { background-color: var(--color-f9fafb); }
 
 /* =============================================
    LAB RESULTS
    ============================================= */
 
 .lab-result-item {
-  padding: 16px;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--color-e5e7eb);
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .lab-result-item:last-child {
@@ -686,57 +801,17 @@ h3 {
 
 .lab-test-name {
   font-family: var(--font-family-manrope);
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--color-072635);
-}
-
-.lab-test-value {
-  font-family: var(--font-family-manrope);
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--color-072635);
-}
-
-.lab-reference {
-  font-family: var(--font-family-manrope);
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: var(--font-weight-400);
+  font-size: var(--font-size-14);
   color: var(--color-707070);
+  flex: 1;
 }
 
-.lab-status {
-  font-family: var(--font-family-manrope);
-  font-weight: 500;
-  font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 12px;
-  display: inline-block;
-  text-transform: capitalize;
-}
-
-.lab-status.normal,
-.lab-status.normal-range {
-  background-color: #d1fae5;
-  color: #065f46;
-}
-
-.lab-status.high,
-.lab-status.above-normal,
-.lab-status.elevated {
-  background-color: #fee2e2;
-  color: #991b1b;
-}
-
-.lab-status.low,
-.lab-status.below-normal {
-  background-color: #fef3c7;
-  color: #92400e;
-}
-
-.lab-status.critical {
-  background-color: #7f1d1d;
-  color: #ffffff;
+.lab-download-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* =============================================
@@ -799,6 +874,7 @@ h3 {
     max-height: 400px;
   }
 }
+
 
 @media (max-width: 480px) {
   .nav-menu {

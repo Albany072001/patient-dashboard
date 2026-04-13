@@ -17,21 +17,20 @@ export function renderLabResults(patient) { // Render the lab results for the pa
     .map(result => {
       // Handle both string and object formats
       if (typeof result === 'string') {
-        return `<div class="lab-result-item">${result}</div>`;
+        return `
+          <div class="lab-result-item">
+            <span class="lab-test-name">${result}</span>
+            <img src="./assets/icons/download.png" alt="Download ${result}" class="lab-download-icon">
+          </div>
+        `;
       } else if (typeof result === 'object' && result !== null) {
         // Assume lab result object has properties like name, value, unit, status
         const name = result.name || result.test || 'Unknown Test';
-        const value = result.value || 'N/A';
-        const unit = result.unit || '';
-        const status = result.status || result.levels || '';
-        const reference = result.reference || result.range || '';
 
         return `
           <div class="lab-result-item">
-            <div class="lab-test-name">${name}</div>
-            <div class="lab-test-value">${value} ${unit}</div>
-            ${reference ? `<div class="lab-reference">Reference: ${reference}</div>` : ''}
-            ${status ? `<div class="lab-status ${status.toLowerCase().replace(/\s+/g, '-')}">${status}</div>` : ''}
+            <span class="lab-test-name">${name}</span>
+            <img src="./assets/icons/download.png" alt="Download ${name}" class="lab-download-icon">
           </div>
         `;
       }
