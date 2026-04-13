@@ -173,7 +173,6 @@ div.cta-icons {
 
 /* =============================================
    LEFT COLUMN — patients list
-   Fixed height, list scrolls inside the card.
    ============================================= */
 
 #patientsSection {
@@ -194,12 +193,12 @@ div.cta-icons {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 14px;
-  flex-shrink: 0;          /* never compress the header */
+  flex-shrink: 0;          
 }
 
 .patients-list {
   overflow-y: scroll;
-  flex-grow: 1;            /* take all remaining height in the card */
+  flex-grow: 1;            
   flex-shrink: 1;
   flex-basis: 0%;
   scrollbar-width: thin;
@@ -285,8 +284,7 @@ div.cta-icons {
 }
 
 /* =============================================
-   CENTER COLUMN
-   Cards grow with content — no fixed heights.
+   CENTER COLUMN - Diagnosis history + diagnostic list
    ============================================= */
 
 #diagnosisHistorySection {
@@ -323,8 +321,7 @@ div.cta-icons {
 }
 
 /* =============================================
-   RIGHT COLUMN
-   Two cards that flex equally and fill available height.
+   RIGHT COLUMN - patient profile + lab results
    ============================================= */
 
 #patientProfileSection {
@@ -375,7 +372,7 @@ div.cta-icons {
 }
 
 /* =============================================
-   UI STATES
+   UI STATES - loading, error, data
    ============================================= */
 
 #renderDiagnosisHistory,
@@ -606,7 +603,7 @@ h3 {
 }
 
 /* =============================================
-   PATIENT PROFILE
+   PATIENT PROFILE - basic info + contact + insurance
    ============================================= */
 
 .profile-header {
@@ -694,7 +691,7 @@ h3 {
 }
 
 /* =============================================
-   DIAGNOSTIC LIST
+   DIAGNOSTIC LIST - table with sticky header
    ============================================= */
 
 .diagnostic-container {
@@ -742,7 +739,6 @@ h3 {
   border-spacing: 0;         /* keeps it tight */
 }
 
-
 .diagnostic-table thead th {
   font-family: var(--font-family-manrope);
   background: var(--color-F6F7F8);
@@ -783,7 +779,7 @@ h3 {
 .diagnostic-table tbody tr:hover { background-color: var(--color-f9fafb); }
 
 /* =============================================
-   LAB RESULTS
+   LAB RESULTS - list with download icons
    ============================================= */
 
 .lab-result-item {
@@ -874,7 +870,6 @@ h3 {
     max-height: 400px;
   }
 }
-
 
 @media (max-width: 480px) {
   .nav-menu {
