@@ -38,6 +38,7 @@ export function renderLabResults(patient) { // Render the lab results for the pa
     })
     .join("");
 
+  container.style.overflow = "visible";
   dataState.innerHTML = html;
   dataState.style.display = "block";
 }
