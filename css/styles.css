@@ -212,6 +212,8 @@ div.cta-icons {
   scrollbar-color: var(--color-072635) var(--color-e0e0e0);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 /* Webkit scrollbar styling (Chrome, Safari, Edge) */
@@ -667,7 +669,9 @@ h3 {
 .profile-details {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
+  flex: 1;
+  justify-content: space-between;
 }
 
 .profile-item {
@@ -720,6 +724,14 @@ h3 {
   display: block;        
   margin-left: auto;     
   margin-right: auto;    
+}
+
+#renderPatientProfile .data-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
 }
 
 /* =============================================
