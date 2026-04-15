@@ -14,43 +14,41 @@
 
 <body>
 
-  <!-- NAVIGATIONBAR -->
-
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
 
     <div class="nav-logo">
-      <img src="./assets/icons/TestLogo.png" alt="Tech Care Logo">
+      <img src="./assets/icons/TestLogo.png" alt="TechCare home" decoding="async">
     </div>
 
     <ul class="nav-menu">
       <li>
-        <img src="./assets/icons/home.png" alt="Overview Icon">
+        <img src="./assets/icons/home.png" alt="" decoding="async" aria-hidden="true">
         <span>Overview</span>
       </li>
 
       <li class="active">
-        <img src="./assets/icons/group.png" alt="Patients Icon">
+        <img src="./assets/icons/group.png" alt="" decoding="async" aria-hidden="true">
         <span>Patients</span>
       </li>
 
       <li>
-        <img src="./assets/icons/calendar_today.png" alt="Schedule Icon">
+        <img src="./assets/icons/calendar_today.png" alt="" decoding="async" aria-hidden="true">
         <span>Schedule</span>
       </li>
 
       <li>
-        <img src="./assets/icons/chat_bubble.png" alt="Message Icon">
+        <img src="./assets/icons/chat_bubble.png" alt="" decoding="async" aria-hidden="true">
         <span>Message</span>
       </li>
 
       <li>
-        <img src="./assets/icons/credit_card.png" alt="Transactions Icon">
+        <img src="./assets/icons/credit_card.png" alt="" decoding="async" aria-hidden="true">
         <span>Transactions</span>
       </li>
     </ul>
 
     <div class="nav-doctor-info">
-      <img class="doctor-picture" src="./assets/images/senior_woman_doctor.png" alt="Doctor">
+      <img class="doctor-picture" src="./assets/images/senior_woman_doctor.png" alt="Portrait of Dr. Jose Simmons" decoding="async">
 
       <div class="doctor-text">
         <p class="body-emphasized-14pt">Dr. Jose Simmons</p>
@@ -58,8 +56,12 @@
       </div>
 
       <div class="cta-icons">
-        <img src="./assets/icons/settings.png" alt="Settings">
-        <img src="./assets/icons/more@2x.png" alt="More options">
+        <button type="button" class="cta-icon-btn" aria-label="Open settings">
+          <img src="./assets/icons/settings.png" alt="" decoding="async" aria-hidden="true">
+        </button>
+        <button type="button" class="cta-icon-btn" aria-label="More account options">
+          <img src="./assets/icons/more@2x.png" alt="" decoding="async" aria-hidden="true">
+        </button>
       </div>
     </div>
 
@@ -67,7 +69,7 @@
 
   <!-- DASHBOARD -->
 
-  <main class="dashboard">
+  <main class="dashboard" id="main-content">
 
     <!-- LEFT COLUMN -->
     <aside class="patients-panel">
@@ -76,7 +78,9 @@
 
         <header class="section-header">
           <h2 class="card-title-24pt">Patients</h2>
-          <img src="./assets/icons/search.png" alt="Search">
+          <button type="button" class="section-search-btn" aria-label="Search patients">
+            <img src="./assets/icons/search.png" alt="" decoding="async" aria-hidden="true">
+          </button>
         </header>
 
         <div class="patients-list">
@@ -88,7 +92,7 @@
               <p class="patient-name">Emily Williams</p>
               <p class="patient-meta">Female, 18</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -98,7 +102,7 @@
               <p class="patient-name">Ryan Johnson</p>
               <p class="patient-meta">Male, 45</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -108,7 +112,7 @@
               <p class="patient-name">Brandon Mitchell</p>
               <p class="patient-meta">Male, 36</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- SELECTED PATIENT -->
@@ -118,7 +122,7 @@
               <p class="patient-name">Jessica Taylor</p>
               <p class="patient-meta">Female, 28</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -128,7 +132,7 @@
               <p class="patient-name">Samantha Johnson</p>
               <p class="patient-meta">Female, 56</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -138,7 +142,7 @@
               <p class="patient-name">Ashley Martinez</p>
               <p class="patient-meta">Female, 54</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -148,7 +152,7 @@
               <p class="patient-name">Olivia Brown</p>
               <p class="patient-meta">Female, 32</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -158,7 +162,7 @@
               <p class="patient-name">Tyler Davis</p>
               <p class="patient-meta">Male, 19</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -168,7 +172,7 @@
               <p class="patient-name">Kevin Anderson</p>
               <p class="patient-meta">Male, 30</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -178,7 +182,7 @@
               <p class="patient-name">Dylan Thompson</p>
               <p class="patient-meta">Male, 30</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -188,7 +192,7 @@
               <p class="patient-name">Nathan Evans</p>
               <p class="patient-meta">Male, 36</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
           <!-- PATIENT -->
@@ -198,7 +202,7 @@
               <p class="patient-name">Mike Nolan</p>
               <p class="patient-meta">Male, 31</p>
             </div>
-            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Options">
+            <img class="patient-options" src="./assets/icons/more_horiz.png" alt="Open patient actions menu">
           </div>
 
         </div>
@@ -230,7 +234,7 @@
               <!-- LEFT: CHART -->
               <div class="chart-area">
                 <p class="chart-title">Blood Pressure</p>
-                <canvas id="bloodPressureChart"></canvas>
+                <canvas id="bloodPressureChart" role="img" aria-label="Blood pressure chart: systolic and diastolic readings over recent months"></canvas>
               </div>
 
               <!-- RIGHT: CHART STATS -->
@@ -243,7 +247,7 @@
                   </div>
                   <h3 id="systolicValue">--</h3>
                   <div class="bp-status-row">
-                    <img src="./assets/icons/ArrowUp.png" alt="Status Icon" class="status-icon">
+                    <img src="./assets/icons/ArrowUp.png" alt="" class="status-icon" decoding="async" aria-hidden="true">
                     <span id="systolicStatus" class="status">Higher than Average</span>
                   </div>
                 </div>
@@ -257,7 +261,7 @@
                   </div>
                   <h3 id="diastolicValue">--</h3>
                   <div class="bp-status-row">
-                    <img src="./assets/icons/ArrowDown.png" alt="Status Icon">
+                    <img src="./assets/icons/ArrowDown.png" alt="" decoding="async" aria-hidden="true">
                     <span id="diastolicStatus" class="status">Lower than Average</span>
                   </div>
                 </div>
@@ -273,7 +277,7 @@
               <div class="vitals-card respiratory">
                 <div class="vitals-header">
                   <div class="icon-circle">
-                    <img src="./assets/images/respiratory_rate.png">
+                    <img src="./assets/images/respiratory_rate.png" alt="" decoding="async" aria-hidden="true">
                   </div>
                 </div>
                 <h3>Respiratory Rate</h3>
@@ -285,7 +289,7 @@
               <div class="vitals-card temperature">
                 <div class="vitals-header">
                   <div class="icon-circle">
-                    <img src="./assets/images/temperature.png">
+                    <img src="./assets/images/temperature.png" alt="" decoding="async" aria-hidden="true">
                   </div>
                 </div>
                 <h3>Temperature</h3>
@@ -297,13 +301,13 @@
               <div class="vitals-card heart">
                 <div class="vitals-header">
                   <div class="icon-circle">
-                    <img src="./assets/images/heartBPM.png">
+                    <img src="./assets/images/heartBPM.png" alt="" decoding="async" aria-hidden="true">
                   </div>
                 </div>
                 <h3>Heart Rate</h3>
                 <p id="heartRateValue"></p>
                 <div class="status-wrapper">
-                  <img id="heartRateIcon" src="./assets/icons/ArrowDown.png" alt="" class="status-icon">
+                  <img id="heartRateIcon" src="./assets/icons/ArrowDown.png" alt="" class="status-icon" decoding="async" aria-hidden="true">
                   <span id="heartRateStatus" class="vitals-status"></span>
                 </div>
               </div>
@@ -327,11 +331,13 @@
             <div class="table-wrapper">
               <table class="diagnostic-table">
 
+                <caption class="visually-hidden">Diagnoses and status for the selected patient</caption> <!-- The caption for the table -->
+
                 <thead>
                   <tr>
-                    <th>Problem/Diagnosis</th>
-                    <th>Description</th>
-                    <th>Status</th>
+                    <th>Problem/Diagnosis</th> <!-- The header for the first column -->
+                    <th>Description</th> <!-- The header for the second column -->
+                    <th>Status</th> <!-- The header for the third column -->
                   </tr>
                 </thead>
 
@@ -349,7 +355,9 @@
 
     <aside class="right-panel">
 
-      <section id="patientProfileSection">
+      <section id="patientProfileSection" aria-labelledby="patientProfileHeading">
+
+        <h2 id="patientProfileHeading" class="visually-hidden">Patient profile</h2>
 
         <div id="renderPatientProfile">
 

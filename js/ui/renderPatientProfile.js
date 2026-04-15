@@ -16,14 +16,14 @@ export function renderPatientProfile(patient) { // Render the patient profile in
   // Generate HTML for patient profile information
   const html = ` 
     <div class="profile-header">
-      <img src="${patient.profile_picture}" alt="${patient.name}"> 
+      <img src="${patient.profile_picture}" alt="Profile photo of ${patient.name}" decoding="async">
       <h3>${patient.name}</h3>
     </div>
 
     <div class="profile-details">
 
       <div class="profile-item">
-        <img src="./assets/icons/BirthIcon.png" class="profile-icon" alt="DOB icon">
+        <img src="./assets/icons/BirthIcon.png" class="profile-icon" alt="" decoding="async" aria-hidden="true">
         <div>
           <p>Date of Birth</p>
           <p>${patient.date_of_birth ?? "N/A"}</p>
@@ -31,7 +31,7 @@ export function renderPatientProfile(patient) { // Render the patient profile in
       </div>
 
       <div class="profile-item">
-        <img src="./assets/icons/FemaleIcon.png" class="profile-icon" alt="Gender icon">
+        <img src="./assets/icons/FemaleIcon.png" class="profile-icon" alt="" decoding="async" aria-hidden="true">
         <div>
           <p>Gender</p>
           <p>${patient.gender ?? "N/A"}</p>
@@ -39,7 +39,7 @@ export function renderPatientProfile(patient) { // Render the patient profile in
       </div>
 
       <div class="profile-item">
-        <img src="./assets/icons/PhoneIcon.png" class="profile-icon" alt="Contact icon">
+        <img src="./assets/icons/PhoneIcon.png" class="profile-icon" alt="" decoding="async" aria-hidden="true">
         <div>
           <p>Contact Info.</p>
           <p>${patient.phone_number ?? "N/A"}</p>
@@ -47,7 +47,7 @@ export function renderPatientProfile(patient) { // Render the patient profile in
       </div>
 
       <div class="profile-item">
-        <img src="./assets/icons/PhoneIcon.png" class="profile-icon" alt="Emergency icon">
+        <img src="./assets/icons/PhoneIcon.png" class="profile-icon" alt="" decoding="async" aria-hidden="true">
         <div>
           <p>Emergency Contacts</p>
           <p>${patient.emergency_contact ?? "N/A"}</p>
@@ -55,7 +55,7 @@ export function renderPatientProfile(patient) { // Render the patient profile in
       </div>
 
       <div class="profile-item">
-        <img src="./assets/icons/InsuranceIcon.png" class="profile-icon" alt="Insurance icon">
+        <img src="./assets/icons/InsuranceIcon.png" class="profile-icon" alt="" decoding="async" aria-hidden="true">
         <div>
           <p>Insurance Provider</p>
           <p>${patient.insurance_type ?? "N/A"}</p>
@@ -64,7 +64,7 @@ export function renderPatientProfile(patient) { // Render the patient profile in
 
     </div>
 
-    <button class="show-all-btn">Show All Information</button>
+    <button type="button" class="show-all-btn">Show all patient information</button>
   `;
 
   // Hide loading/error and render data

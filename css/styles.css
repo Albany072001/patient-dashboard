@@ -1,11 +1,10 @@
-@import url("reset.css");
+﻿@import url("reset.css");
 @import url("variables.css");
 
-/* =============================================
-   TYPOGRAPHY
-   ============================================= */
+/* --------------------------------------------
+   01 — Base: typography & page background
+   --------------------------------------------*/
 
-   /* 24pt is used for the main dashboard title and section headers. */
 .card-title-24pt {
   font-family: var(--font-family-manrope);
   font-style: normal;
@@ -16,8 +15,8 @@
   color: var(--color-072635);
 }
 
-/* 14pt is the default body text size, used in most places.*/
-.body-emphasized-14pt { /* used for patient names and vitals values — anywhere else to draw extra attention */
+/* 14pt — emphasis (names, vitals, etc.) */
+.body-emphasized-14pt {
   font-family: var(--font-family-manrope);
   font-style: normal;
   font-weight: 700;
@@ -28,7 +27,7 @@
   color: var(--color-072635);
 }
 
-/* 14pt with normal weight is used for secondary information, like patient metadata and vitals status. */
+/* 14pt — secondary (metadata, status lines) */
 .body-secondary-info-14pt {
   font-family: var(--font-family-manrope);
   font-style: normal;
@@ -39,19 +38,15 @@
   color: var(--color-707070);
 }
 
-/* =============================================
-   GLOBAL
-   ============================================= */
-
 body {
   background-color: var(--color-F6F7F8);
   margin: 0;
   padding: 0;
 }
 
-/* =============================================
-   NAVBAR
-   ============================================= */
+/* ----------------------------
+   02 — Navbar
+   ----------------------------*/
 
 .navbar {
   font-family: var(--font-family-manrope);
@@ -139,17 +134,50 @@ div.cta-icons {
 }
 
 .cta-icons img {
-  width: 12px !important;
+  width: 12px !important; /* Override any inline styles */
   height: 15px;
   cursor: pointer;
   margin-left: 5px;
 }
 
-/* =============================================
-   DASHBOARD GRID
-   3 columns, cards align to top of their column.
-   Heights are fixed so all columns visually match.
-   ============================================= */
+.cta-icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font: inherit;
+}
+
+.cta-icon-btn:focus-visible {
+  outline: 2px solid var(--color-072635);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.section-search-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  line-height: 0;
+  font: inherit;
+}
+
+.section-search-btn:focus-visible {
+  outline: 2px solid var(--color-072635);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------
+   03 — Dashboard shell (grid + column wrappers)
+   --------------------------------------------*/
 
 .dashboard {
   display: grid;
@@ -178,9 +206,10 @@ div.cta-icons {
   height: 100%;
   min-width: 0;
 }
-/* =============================================
-   LEFT COLUMN — patients list
-   ============================================= */
+
+/* --------------------------------------------
+   04 — Left column: patient list
+   --------------------------------------------*/
 
 #patientsSection {
   box-sizing: border-box;
@@ -200,40 +229,19 @@ div.cta-icons {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 14px;
-  flex-shrink: 0;          
+  flex-shrink: 0;
 }
 
 .patients-list {
   overflow-y: scroll;
-  flex-grow: 1;            
+  flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0%;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
-}
-
-/* Webkit scrollbar styling (Chrome, Safari, Edge) */
-.patients-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-.patients-list::-webkit-scrollbar-track {
-  background-color: var(--color-e0e0e0);
-  border-radius: 4px;
-}
-
-.patients-list::-webkit-scrollbar-thumb {
-  background-color: var(--color-072635);
-  border-radius: 4px;
-  border: 2px solid var(--color-e0e0e0);
-}
-
-.patients-list::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-072635);
+  scrollbar-gutter: stable;
 }
 
 .patient-item {
@@ -292,9 +300,9 @@ div.cta-icons {
   flex-shrink: 0;
 }
 
-/* =============================================
-   CENTER COLUMN - Diagnosis history + diagnostic list
-   ============================================= */
+/* --------------------------------------------------------------------
+   05 — Center column: diagnosis history (card shell + chart + vitals)
+   --------------------------------------------------------------------*/
 
 #diagnosisHistorySection {
   box-sizing: border-box;
@@ -308,169 +316,6 @@ div.cta-icons {
   display: flex;
   flex-direction: column;
 }
-
-#diagnosticListSection {
-  box-sizing: border-box;
-  width: 100%;
-  background-color: var(--color-ffffff);
-  border-radius: 16px;
-  padding: 24px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0
-}
-
-.diagnostic-card {
-  box-sizing: border-box;
-  background-color: var(--color-ffffff);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-}
-
-/* =============================================
-   RIGHT COLUMN - patient profile + lab results
-   ============================================= */
-
-#patientProfileSection {
-  box-sizing: border-box;
-  width: 100%;
-  flex: 1 1 auto;
-  min-height: 0;
-  background-color: var(--color-ffffff);
-  border-radius: 16px;
-  padding: 24px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-#labResultsSection {
-  box-sizing: border-box;
-  width: 100%;
-  flex: 0 0 auto;
-  min-height: 0;
-  max-height: 300px;
-  background-color: var(--color-ffffff);
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
-}
-
-#renderLabResults .data-state {
-  overflow: visible;
-  flex: unset;
-}
-
-/* Webkit scrollbar styling for lab results */
-#labResultsSection::-webkit-scrollbar {
-  width: 8px;
-}
-
-#labResultsSection::-webkit-scrollbar-track {
-  background-color: var(--color-e0e0e0);
-  border-radius: 4px;
-}
-
-#labResultsSection::-webkit-scrollbar-thumb {
-  background-color: var(--color-072635);
-  border-radius: 4px;
-  border: 2px solid var(--color-e0e0e0);
-}
-
-#labResultsSection::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-072635);
-}
-
-/* =============================================
-   UI STATES - loading, error, data
-   ============================================= */
-
-#renderDiagnosisHistory,
-#renderDiagnosticList,
-#renderPatientProfile {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-}
-
-#renderLabResults {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;       /* let the parent section handle scrolling */
-}
-
-#renderDiagnosisHistory .data-state,
-#renderPatientProfile .data-state {
-  overflow: visible;
-}
-
-#diagnosisHistorySection h2,
-#diagnosticListSection h2,
-#patientProfileSection h2,
-#labResultsSection h2 {
-  flex-shrink: 0;
-  margin-bottom: 16px;
-}
-
-.loading-state {
-  font-family: var(--font-family-manrope);
-  font-size: var(--font-size-14);
-  color: var(--color-707070);
-  padding: 16px 0;
-  display: none;
-}
-
-.error-state {
-  font-family: var(--font-family-manrope);
-  font-size: var(--font-size-14);
-  color: var(--color-ff6200);
-  padding: 16px 0;
-  display: none;
-}
-
-.data-state {
-  display: none;
-  flex: 1;
-  overflow-y: auto;
-  min-width: 0;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
-}
-
-/* Webkit scrollbar styling (Chrome, Safari, Edge) */
-.data-state::-webkit-scrollbar {
-  width: 8px;
-}
-
-.data-state::-webkit-scrollbar-track {
-  background-color: var(--color-e0e0e0);
-  border-radius: 4px;
-}
-
-.data-state::-webkit-scrollbar-thumb {
-  background-color: var(--color-072635);
-  border-radius: 4px;
-  border: 2px solid var(--color-e0e0e0);
-}
-
-.data-state::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-072635);
-}
-
-/* =============================================
-   DIAGNOSIS HISTORY — chart + vitals
-   ============================================= */
 
 .history-chart-wrapper {
   background: var(--color-f4f0ff);
@@ -502,9 +347,10 @@ div.cta-icons {
   margin: 0;
 }
 
+
 #bloodPressureChart {
   width: 100%;
-  height: 100% !important;
+  height: 100% !important; /* Override Chart.js inline styles */
 }
 
 .chart-stats {
@@ -569,8 +415,6 @@ div.cta-icons {
   background: var(--color-e5e7eb);
 }
 
-/* VITALS CARDS */
-
 .vitals-cards-grid {
   display: flex;
   gap: 18px;
@@ -613,6 +457,7 @@ div.cta-icons {
   object-fit: contain;
 }
 
+/* Default h3 — vitals cards; overridden in profile (.profile-header h3) */
 h3 {
   font-family: var(--font-family-manrope);
   color: var(--color-072635);
@@ -638,9 +483,106 @@ h3 {
   color: var(--color-072635);
 }
 
-/* =============================================
-   PATIENT PROFILE - basic info + contact + insurance
-   ============================================= */
+/* ------------------------------------------------
+   06 — Center column: diagnostic list (table)
+   ------------------------------------------------*/
+
+#diagnosticListSection {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.diagnostic-card {
+  box-sizing: border-box;
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.diagnostic-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.table-wrapper {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  max-height: 300px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+.diagnostic-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.diagnostic-table thead th {
+  font-family: var(--font-family-manrope);
+  background: var(--color-F6F7F8);
+  color: var(--color-072635);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-13);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.diagnostic-table thead th:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.diagnostic-table thead th:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.diagnostic-table tbody td {
+  padding: 14px;
+  border-bottom: 1px solid var(--color-e5e7eb);
+  font-family: var(--font-family-manrope);
+  font-weight: 400;
+  font-size: var(--font-size-14);
+  color: var(--color-072635);
+}
+
+.diagnostic-table tbody tr:last-child td { border-bottom: none; }
+.diagnostic-table tbody tr:hover { background-color: var(--color-f9fafb); }
+
+/* ------------------------------------------------
+   07 — Right column: patient profile
+   ------------------------------------------------*/
+
+#patientProfileSection {
+  box-sizing: border-box;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
 .profile-header {
   display: flex;
@@ -708,7 +650,7 @@ h3 {
 }
 
 .show-all-btn {
-  background-color: var(--color-01f0d0); 
+  background-color: var(--color-01f0d0);
   border: none;
   padding: 12px 24px;
   border-radius: 20px;
@@ -721,9 +663,9 @@ h3 {
   margin-top: 20px;
   margin-bottom: 20px;
   min-width: 200px;
-  display: block;        
-  margin-left: auto;     
-  margin-right: auto;    
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #renderPatientProfile .data-state {
@@ -734,100 +676,41 @@ h3 {
   height: 100%;
 }
 
-/* =============================================
-   DIAGNOSTIC LIST - table with sticky header
-   ============================================= */
+/* ------------------------------------------------
+   08 — Right column: lab results
+   ------------------------------------------------*/
 
-.diagnostic-container {
-  display: flex; 
+#labResultsSection {
+  box-sizing: border-box;
+  width: 100%;
+  flex: 0 0 auto;
+  min-height: 0;
+  max-height: 300px;
+  background-color: var(--color-ffffff);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+#renderLabResults {
+  display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 0;
+  overflow: hidden;
 }
 
-.table-wrapper {
-  flex: 1;
-  min-width: 0;
-  min-height: 0;
-  max-height: 300px;      
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-gutter: stable;
-  scrollbar-color: var(--color-072635) var(--color-e0e0e0);
+#renderLabResults .data-state {
+  overflow: visible;
+  flex: unset;
 }
-
-/* Webkit scrollbar styling (Chrome, Safari, Edge) */
-.table-wrapper::-webkit-scrollbar {
-  width: 8px;
-}
-
-.table-wrapper::-webkit-scrollbar-track {
-  background-color: var(--color-e0e0e0);
-  border-radius: 4px;
-}
-
-.table-wrapper::-webkit-scrollbar-thumb {
-  background-color: var(--color-072635);
-  border-radius: 4px;
-  border: 2px solid var(--color-e0e0e0);
-}
-
-.table-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-1a3a47);
-}
-
-.diagnostic-table {
-  width: 100%;
-  border-collapse: separate; 
-  border-spacing: 0;         /* keeps it tight */
-}
-
-.diagnostic-table thead th {
-  font-family: var(--font-family-manrope);
-  background: var(--color-F6F7F8);
-  color: var(--color-072635);
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  text-align: left;
-  padding: 12px 14px;
-  font-weight: var(--font-weight-700);
-  font-size: var(--font-size-13);
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-/* Left side (top + bottom) */
-.diagnostic-table thead th:first-child {
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-
-/* Right side (top + bottom) */
-.diagnostic-table thead th:last-child {
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-
-.diagnostic-table tbody td {
-  padding: 14px;
-  border-bottom: 1px solid var(--color-e5e7eb);
-  font-family: var(--font-family-manrope);
-  font-weight: 400;
-  font-size: var(--font-size-14);
-  color: var(--color-072635);
-}
-
-.diagnostic-table tbody tr:last-child td { border-bottom: none; }
-.diagnostic-table tbody tr:hover { background-color: var(--color-f9fafb); }
-
-/* =============================================
-   LAB RESULTS - list with download icons
-   ============================================= */
 
 .lab-result-item {
-  padding: 16px 12px; 
+  padding: 16px 12px;
   border-bottom: 1px solid var(--color-e5e7eb);
   display: flex;
   align-items: center;
@@ -844,7 +727,7 @@ h3 {
   font-weight: var(--font-weight-400);
   font-size: var(--font-size-14);
   color: var(--color-072635);
-  flex: 1;    
+  flex: 1;
 }
 
 .lab-download-icon {
@@ -854,18 +737,68 @@ h3 {
   flex-shrink: 0;
 }
 
-/* =============================================
-   ACCESSIBILITY
-   ============================================= */
+/* -----------------------------------------------------------------
+   09 — API-driven section roots & loading / error / data states
+   -----------------------------------------------------------------*/
+
+#renderDiagnosisHistory,
+#renderDiagnosticList,
+#renderPatientProfile {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#renderDiagnosisHistory .data-state,
+#renderPatientProfile .data-state {
+  overflow: visible;
+}
+
+#diagnosisHistorySection h2,
+#diagnosticListSection h2,
+#patientProfileSection h2,
+#labResultsSection h2 {
+  flex-shrink: 0;
+  margin-bottom: 16px;
+}
+
+.loading-state {
+  font-family: var(--font-family-manrope);
+  font-size: var(--font-size-14);
+  color: var(--color-707070);
+  padding: 16px 0;
+  display: none;
+}
+
+.error-state {
+  font-family: var(--font-family-manrope);
+  font-size: var(--font-size-14);
+  color: var(--color-ff6200);
+  padding: 16px 0;
+  display: none;
+}
+
+.data-state {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+  min-width: 0;
+}
+
+/* ---------------------------
+   10 — Accessibility
+   ---------------------------*/
 
 .visually-hidden {
   position: absolute;
   left: -9999px;
 }
 
-/* =============================================
-   RESPONSIVE
-   ============================================= */
+/* ---------------------------
+   11 — Responsive
+   ---------------------------*/
 
 @media (max-width: 1024px) {
   .nav-menu { gap: 16px; }
