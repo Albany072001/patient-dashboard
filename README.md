@@ -75,10 +75,6 @@ patient-dashboard/
 │   ├── services/
 │   │   └── auth.js
 │   │
-│   ├── utils/
-│   │   ├── formatDate.js
-│   │   └── helpers.js
-│   │
 │   └── ui/
 │       ├── renderPatientProfile.js
 │       ├── renderDiagnosisHistory.js
