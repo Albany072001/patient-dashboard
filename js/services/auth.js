@@ -1,5 +1,10 @@
-export function getAuthHeader() { // Return the authentication header for API requests
+const username = "coalition";
+const password = "skills-test";
+
+export function getAuthHeader() {
+  const encoded = btoa(`${username}:${password}`);
+
   return {
-    Authorization: `Basic Y29hbGl0aW9uOnNraWxscy10ZXN0` // Basic auth token
+    Authorization: `Basic ${encoded}`,
   };
 }
