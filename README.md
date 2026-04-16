@@ -168,19 +168,6 @@ Right click → Open with Live Server
 
 ---
 
-## Deployment
-
-The project can be deployed using **GitHub Pages**.
-
-Steps:
-
-1. Push the project to GitHub
-2. Navigate to **Repository Settings**
-3. Enable **GitHub Pages**
-4. Select the `main` branch
-
----
-
 ## Author
 
 Developed as part of the **Coalition Technologies Front-End Developer Skills Test**.
