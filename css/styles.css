@@ -1,7 +1,4 @@
-﻿@import url("reset.css");
-@import url("variables.css");
-
-/* --------------------------------------------
+﻿/* --------------------------------------------
    01 — Base: typography & page background
    --------------------------------------------*/
 
@@ -19,7 +16,7 @@
 .body-emphasized-14pt {
   font-family: var(--font-family-manrope);
   font-style: normal;
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   font-size: var(--font-size-14);
   margin-bottom: 5px;
   line-height: var(--line-spacing-19);
@@ -31,7 +28,7 @@
 .body-secondary-info-14pt {
   font-family: var(--font-family-manrope);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--font-weight-400);
   font-size: var(--font-size-14);
   line-height: var(--line-spacing-19);
   letter-spacing: 0;
@@ -50,7 +47,7 @@ body {
 
 .navbar {
   font-family: var(--font-family-manrope);
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   color: var(--color-072635);
   background: var(--color-ffffff);
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -111,7 +108,7 @@ div.doctor-text {
 
 div.doctor-text p {
   font-family: var(--font-family-manrope);
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   font-size: var(--font-size-14);
   color: var(--color-072635);
   margin: 0;
@@ -119,6 +116,7 @@ div.doctor-text p {
 
 div.doctor-text span {
   font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-400);
   font-size: var(--font-size-14);
   color: var(--color-707070);
 }
@@ -276,7 +274,7 @@ div.cta-icons {
 
 .patient-name {
   font-family: var(--font-family-manrope);
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   font-size: var(--font-size-14);
   color: var(--color-072635);
   margin: 0;
@@ -287,7 +285,7 @@ div.cta-icons {
 
 .patient-meta {
   font-family: var(--font-family-manrope);
-  font-weight: 400;
+  font-weight: var(--font-weight-400);
   font-size: var(--font-size-14);
   color: var(--color-707070);
   margin: 0;
@@ -338,8 +336,8 @@ div.cta-icons {
 
 .chart-title {
   font-family: var(--font-family-manrope);
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-18);
   color: var(--color-072635);
   position: absolute;
   top: 16px;
@@ -389,7 +387,7 @@ div.cta-icons {
 #systolicValue,
 #diastolicValue {
   font-family: var(--font-family-manrope);
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   color: var(--color-072635);
 }
 
@@ -404,8 +402,8 @@ div.cta-icons {
 
 .status {
   font-family: var(--font-family-manrope);
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: var(--font-weight-400);
+  font-size: var(--font-size-14);
   color: var(--color-072635);
 }
 
@@ -443,7 +441,7 @@ div.cta-icons {
 .icon-circle {
   width: 96px;
   height: 96px;
-  background: white;
+  background: var(--color-ffffff);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -478,7 +476,7 @@ h3 {
 }
 
 .vitals-status {
-  font-size: 14px;
+  font-size: var(--font-size-14);
   font-family: var(--font-family-manrope);
   color: var(--color-072635);
 }
@@ -559,7 +557,7 @@ h3 {
   padding: 14px;
   border-bottom: 1px solid var(--color-e5e7eb);
   font-family: var(--font-family-manrope);
-  font-weight: 400;
+  font-weight: var(--font-weight-400);
   font-size: var(--font-size-14);
   color: var(--color-072635);
 }

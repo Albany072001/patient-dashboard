@@ -3,31 +3,23 @@
 :root {
 
   /* Colors: */
-  --color-d8fcf7: #D8FCF7; /*in use*/
-  --color-01f0d0: #01F0D0; /*in use*/
-  --color-072635: #072635; /*in use*/
-  --color-707070: #707070; /*in use*/
-  --color-ffffff: #FFFFFF; /*in use*/
-  --color-e0e0e0: #E0E0E0; /*in use*/
-  --color-F6F7F8: #F6F7F8; /*in use*/
-  --color-ff6200: #FF6200; /*in use*/
+  --color-d8fcf7: #D8FCF7; 
+  --color-01f0d0: #01F0D0; 
+  --color-072635: #072635; 
+  --color-707070: #707070; 
+  --color-ffffff: #FFFFFF; 
+  --color-e0e0e0: #E0E0E0; 
+  --color-F6F7F8: #F6F7F8; 
+  --color-ff6200: #FF6200; 
   --color-E3E4E6: #E3E4E6;
-  --color-f4f0ff: #f4f0ff; /*in use*/
-  --color-E66FD2: #E66FD2; /*in use*/
-  --color-8C6FE6: #8C6FE6; /*in use*/
+  --color-f4f0ff: #f4f0ff; 
+  --color-E66FD2: #E66FD2; 
+  --color-8C6FE6: #8C6FE6; 
   --color-E0F3FA: #E0F3FA; 
   --color-FFE6E9: #FFE6E9; 
   --color-FFE6F1: #FFE6F1;
   --color-f9fafb: #F9FAFB;
-  --color-e5e7eb: #E5E7EB;
   --color-f2f3f5: #F2F3F5;
-  --color-d1fae5: #D1FAE5;
-  --color-065f46: #065F46;
-  --color-fee2e2: #FEE2E2;
-  --color-991b1b: #991B1B;
-  --color-fef3c7: #FEF3C7;
-  --color-92400e: #92400E;
-  --color-7f1d1d: #7F1D1D;
 
   /* Font/text values */
   --font-family-manrope: Manrope;
