@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
 
@@ -22,7 +21,7 @@
   --color-f2f3f5: #F2F3F5;
 
   /* Font/text values */
-  --font-family-manrope: Manrope;
+  --font-family-manrope: Manrope, Arial, sans-serif;
   --font-style-normal: normal;
   --font-weight-400: 400;
   --font-weight-500: 500;

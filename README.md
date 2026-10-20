@@ -1,180 +1,52 @@
-# Patient Dashboard – Coalition Technologies FED Skills Test
+# Patient Dashboard — Vanilla JavaScript Demo
 
-## Project Overview
+A responsive patient dashboard built as the **Coalition Technologies Front-End Developer Skills Test**. The original implementation used the Coalition Technologies Patient Data API. This portfolio version replaces that retired API dependency with **local, entirely synthetic demonstration records**.
 
-This project is a **Front-End Developer Skills Test** provided by Coalition Technologies.  
-The goal is to build a responsive patient dashboard using vanilla JavaScript, integrating data from the provided patient data API and matching the UI designs from the provided mockups.
+## Features
 
-The application retrieves patient information from the API, filters the results to display **Jessica Taylor**, and renders various medical data sections including:
+- Patient profile (Jessica Taylor)
+- Blood pressure history chart drawn with the Canvas API
+- Respiratory rate, body temperature, and heart rate cards
+- Diagnostic list and lab-results display
+- Original project images, icons, and responsive CSS
 
-- Patient Profile
-- Diagnosis History
-- Diagnostic List
-- Lab Results
+The left-side patient list and lab download icons are **visual-only**; they do not switch the displayed record or download files. The primary dashboard intentionally shows Jessica Taylor, matching the original skills-test requirements.
 
-The project focuses on **API integration, data manipulation, UI rendering, and clean code organization**.
+## Run locally
 
----
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-- Fetch API
-- Basic Authentication
-
-No frameworks were used in order to demonstrate core front-end development skills.
-
----
-
-## API Information
-
-The project uses the **Coalition Technologies Patient Data API**, which provides static test data for front-end development scenarios.
-
-### Important Notes
-
-- The API returns **static data** for testing purposes.
-- The data is **not real patient data**.
-- The application only displays information for:
-
-```
-Jessica Taylor
-```
-
-Displaying other patient records is unnecessary for this test.
-
----
-
-## Authentication
-
-The API requires **Basic Authentication**.
-
-Authentication credentials are encoded dynamically.
-
-## Project Structure
-
-```
-patient-dashboard/
-│
-├── index.html
-├── README.md
-├── .gitignore
-│
-├── css/
-│   ├── reset.css
-│   ├── variables.css
-│   └── styles.css
-│
-├── js/
-│   ├── main.js
-│   │
-│   ├── api/
-│   │   └── patientApi.js
-│   │
-│   ├── services/
-│   │   └── auth.js
-│   │
-│   └── ui/
-│       ├── renderPatientProfile.js
-│       ├── renderDiagnosisHistory.js
-│       ├── renderDiagnosticList.js
-│       └── renderLabResults.js
-│
-└── assets/
-    ├── images/
-    └── icons/
-```
-
-### Folder Responsibilities
-
-- **api/** – Handles communication with the external API  
-- **services/** – Authentication logic and reusable services  
-- **utils/** – Helper functions and formatting utilities  
-- **ui/** – DOM rendering and UI components  
-- **css/** – Styling and layout  
-- **assets/** – Images and static resources  
-
----
-
-## Application Features
-
-### Patient Profile
-
-Displays key information about Jessica Taylor, including:
-
-- Name
-- Age
-- Gender
-- Profile details
-
----
-
-### Diagnosis History
-
-Shows historical diagnosis data retrieved from the API.
-
-Some data formatting is performed to better match the provided design mockups.
-
----
-
-### Diagnostic List
-
-Displays diagnostic records in a structured table.
-
----
-
-### Lab Results
-
-Lists lab result entries provided by the API.
-
----
-
-## Data Manipulation
-
-The API data does not perfectly match the design mockups.
-
-To align with the UI designs, the application performs some data transformations such as:
-
-- Formatting dates
-- Adjusting values for display
-- Mapping API fields to UI components
-
----
-
-## Installation & Setup
-
-### 1. Clone the repository
+Requirements: a modern browser and a local static HTTP server. No API credentials, package manager, or build step required.
 
 ```bash
-git clone https://github.com/your-username/patient-dashboard.git
+python -m http.server 8000
 ```
 
-### 2. Navigate to the project directory
+Open <http://localhost:8000>. You can also use VS Code's Live Server extension.
 
-```bash
-cd patient-dashboard
+**Do not rely on opening `index.html` with `file://`:** ES modules may be restricted by the browser's local-file security model.
+
+## Project structure
+
+```text
+index.html
+css/                   # Original styling
+assets/icons/          # Original PNG icons
+assets/images/         # Original PNG illustrations
+js/main.js             # Dashboard initialization
+js/api/patientApi.js   # Offline data adapter; returns mock patients
+js/data/patients.js    # Synthetic fixtures matching the old API format
+js/ui/                 # Dashboard renderers
 ```
 
-### 3. Open the project
+## Offline-demo changes
 
-You can open `index.html` directly in your browser or run a local development server.
+- Replaced the remote API `fetch` with a local fixture import while preserving the existing asynchronous `fetchPatients()` function boundary.
+- Removed the unused Basic Authentication module and its hard-coded credentials.
+- Replaced Chart.js CDN dependency with a local Canvas-based line chart.
+- Removed Google Fonts network dependency; the UI falls back to system fonts where Manrope isn't installed.
+- Kept original layout, styles, and local graphic assets.
 
-Example using VS Code Live Server:
+**Data disclaimer:** Every patient profile, measurement, diagnosis, contact number, and lab result is fictional demo data. Nothing displayed should be treated as real medical information or advice.
 
-```
-Right click → Open with Live Server
-```
+## Attribution
 
----
-
-## Author
-
-Developed as part of the **Coalition Technologies Front-End Developer Skills Test**.
-
----
-
-## Disclaimer
-
-The patient data used in this project is **synthetic and generated for testing purposes only**.  
-It does not represent real patient information.
+Developed for the Coalition Technologies Front-End Developer Skills Test. This repository is an independent portfolio demonstration, not a clinical product.
