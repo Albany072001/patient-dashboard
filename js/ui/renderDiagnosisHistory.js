@@ -26,38 +26,8 @@ export function renderDiagnosisHistory(patient) { // Render the diagnosis histor
   const systolicData = history.map(d => d.blood_pressure.systolic.value); // Create an array of systolic blood pressure values from the diagnosis history for the chart.
   const diastolicData = history.map(d => d.blood_pressure.diastolic.value); // Create an array of diastolic blood pressure values from the diagnosis history for the chart.
 
-  if (canvas.chartInstance) { // If a chart instance already exists on the canvas, destroy it before creating a new one.
-  }
-
-  canvas.chartInstance = new Chart(canvas, { // Create a new Chart.js instance on the canvas element, specifying the type of chart and the data to be displayed.
-    type: "line", // Specify the type of chart to create (line chart in this case).
-    data: {
-      labels,
-      datasets: [ // Define the datasets for the chart
-        {
-          label: "Systolic",
-          data: systolicData,
-          borderColor: "#E66FD2",
-          tension: 0.4
-        },
-        {
-          label: "Diastolic",
-          data: diastolicData,
-          borderColor: "#8C6FE6",
-          tension: 0.4
-        }
-      ]
-    },
-    options: { // Configure the options for the chart, including responsiveness and legend display.
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-    }
-  });
+  // Draw a lightweight line chart without an external Chart.js dependency.
+  if (canvas) drawBloodPressureChart(canvas, labels, systolicData, diastolicData);
 
   // ---------------- VITALS ----------------
   const latest = history.at(-1); // Get the most recent diagnosis entry for displaying current vitals.
@@ -123,4 +93,36 @@ export function renderDiagnosisHistory(patient) { // Render the diagnosis histor
       heartRateIcon.src = "./assets/icons/ArrowDown.png";
     }
   }
+}
+function drawBloodPressureChart(canvas, labels, systolic, diastolic) {
+  const width = Math.max(canvas.parentElement.clientWidth || 420, 260);
+  const height = 245;
+  const ratio = window.devicePixelRatio || 1;
+  canvas.width = width * ratio;
+  canvas.height = height * ratio;
+  canvas.style.height = `${height}px`;
+  const ctx = canvas.getContext("2d");
+  ctx.scale(ratio, ratio);
+  const bounds = { left: 40, right: width - 16, top: 22, bottom: height - 35 };
+  const yMin = 60, yMax = 180;
+  const y = v => bounds.bottom - (v - yMin) / (yMax - yMin) * (bounds.bottom - bounds.top);
+  const x = i => bounds.left + (labels.length === 1 ? 0 : i / (labels.length - 1) * (bounds.right - bounds.left));
+  ctx.font = "11px Manrope, sans-serif";
+  ctx.textAlign = "right";
+  ctx.strokeStyle = "#e1daee";
+  ctx.fillStyle = "#667085";
+  [60, 90, 120, 150, 180].forEach(tick => {
+    ctx.beginPath(); ctx.moveTo(bounds.left, y(tick)); ctx.lineTo(bounds.right, y(tick)); ctx.stroke();
+    ctx.fillText(String(tick), bounds.left - 8, y(tick) + 4);
+  });
+  ctx.textAlign = "center";
+  labels.forEach((label, i) => {
+    if (i % 2 === 0 || i === labels.length - 1) ctx.fillText(label.slice(0,3), x(i), height - 12);
+  });
+  [[systolic,"#E66FD2"],[diastolic,"#8C6FE6"]].forEach(([values,color]) => {
+    ctx.strokeStyle = color; ctx.lineWidth = 3; ctx.lineJoin = "round";
+    ctx.beginPath(); values.forEach((value,i) => i ? ctx.lineTo(x(i),y(value)) : ctx.moveTo(x(i),y(value))); ctx.stroke();
+    ctx.fillStyle = color;
+    values.forEach((value,i) => {ctx.beginPath();ctx.arc(x(i),y(value),3.5,0,Math.PI*2);ctx.fill();});
+  });
 }
